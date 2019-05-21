@@ -2,13 +2,13 @@
  orbs:
    newman: postman/newman@4.4.1
  jobs:
-   build:
+   postman:
      executor: newman/postman-newman-docker
      steps:
        - checkout
        - newman/newman-run:
            collection: ./.circleci/postman-express-test.postman_collection.json
-   build:
+   main-node:
      docker:
        - image: circleci/node:lts
      steps:
