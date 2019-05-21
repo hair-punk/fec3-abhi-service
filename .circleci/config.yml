@@ -5,9 +5,9 @@
   newman-collection-run:
     executor: newman/postman-newman-docker
     steps:
-      -checkout
-      -newman/newman-run:
-        collection: ./.circleci/postman-express-test.postman_collection.json
+      - checkout
+      - newman/newman-run:
+         collection: ./.circleci/postman-express-test.postman_collection.json
    build:
      docker:
        - image: circleci/node:lts
