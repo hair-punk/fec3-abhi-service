@@ -14,7 +14,9 @@ const gameItem = new Schema(
     gameDeveloper:String,
     gamePublisher:String,
     releaseDate:Date,
-    metaTags:Array
+    metaTags:Array,
+    videoFileNames:Array,
+    photoFileNames:Array
 
   }
 );
