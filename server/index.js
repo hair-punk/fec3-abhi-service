@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
 
-app.get('/', async function(req,res){
+app.get('/gameObject', async function(req,res){
   res.send(await query.query(req.query.id));
 })
 
