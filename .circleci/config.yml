@@ -1,13 +1,13 @@
  version: 2
  orbs:
-  newman: postman/newman@0.0.2
+   newman: postman/newman@0.0.2
  jobs:
-  newman-collection-run:
-    executor: newman/postman-newman-docker
-    steps:
-      - checkout
-      - newman/newman-run:
-         collection: ./.circleci/postman-express-test.postman_collection.json
+   newman-collection-run:
+     executor: newman/postman-newman-docker
+     steps:
+       - checkout
+       - newman/newman-run:
+           collection: ./.circleci/postman-express-test.postman_collection.json
    build:
      docker:
        - image: circleci/node:lts
