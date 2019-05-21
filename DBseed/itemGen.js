@@ -3,6 +3,8 @@ var db = mongoose.connect("mongodb://localhost/herodb");
 var DB_SIZE = 100;
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
+const S3VideoCollectionSize = 163;
+const S3PhotoCollectionSize = 100;
 
 const gameItem = new Schema(
   {
@@ -12,7 +14,9 @@ const gameItem = new Schema(
     gameDeveloper:String,
     gamePublisher:String,
     releaseDate:Date,
-    metaTags:Array
+    metaTags:Array,
+    videoFileNames:Array,
+    photoFileNames:Array
 
   }
 );
@@ -29,6 +33,14 @@ function createEntry(num){
   for(let x = 0; x < 5;x++){
     entry.metaTags.push(userMetaTags[Math.floor(Math.random()*userMetaTags.length)])
   }
+  entry.videoFileNames=[];
+  entry.photoFileNames=[];
+  for(let x = 0; x <3;x++){
+    entry.videoFileNames.push(Math.ceil(Math.random()*S3VideoCollectionSize));
+  }
+  for(let x = 0; x <2;x++){
+    entry.photoFileNames.push(Math.ceil(Math.random()*S3PhotoCollectionSize));
+  }
   return entry;
 }
 function populate(){
@@ -41,10 +53,12 @@ function populate(){
       gameDeveloper:newData.devName,
       gamePublisher:newData.pubName,
       releaseDate: newData.releaseDate,
-      metaTags:newData.metaTags
+      metaTags:newData.metaTags,
+      videoFileNames:newData.videoFileNames,
+      photoFileNames:newData.photoFileNames
     });
     newGame.save(function(err){
-      console.log(error);
+      console.log(err);
     })
   }
 }
@@ -60,4 +74,3 @@ function populate(){
   var userMetaTags=['action', 'adventure', 'casual', 'strategy', 'rpg', 'massively multiplayer', 'racing', 'puzzle', 'VR', 'Horror', 'Co-op', 'Retro', 'FPS', 'first person', 'survival', 'arcade', 'sandbox', 'space', 'zombies', 'relaxing', 'rogue-like', 'sports', 'RTS', 'fighting', 'Tower Defense', 'Cyberpunk', 'arena shooter', 'steampunk', 'rhythm', 'pirates', 'ninja', 'battle royale', 'cinematic', 'cats'];
 
   populate();
-  mongoose.disconnect();
