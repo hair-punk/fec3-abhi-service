@@ -1,0 +1,34 @@
+{
+	"info": {
+		"_postman_id": "f4218520-e701-4207-b518-b44837cc2c58",
+		"name": "postman-express-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "gameObject-get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3007/gameObject?id=1",
+					"host": [
+						"localhost"
+					],
+					"port": "3007",
+					"path": [
+						"gameObject"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "This tests the express server that returns teh game data"
+			},
+			"response": []
+		}
+	]
+}

@@ -1,10 +1,25 @@
- version: 2
+ version: 2.1
+ orbs:
+   newman: postman/newman@0.0.2
  jobs:
-   build:
+   postman:
+     executor: newman/postman-newman-docker
+     steps:
+       - checkout
+       - run: npm install
+       - run: npm run express-server
+       - newman/newman-run:
+           collection: .circleci/postman_test.json
+   main-node:
      docker:
        - image: circleci/node:lts
      steps:
        - checkout
        - run: echo "A first hello"
-       - run: npm install
        - run: npm test
+ workflows:
+   version: 2.1
+   postman_and_main:
+     jobs:
+      - postman
+      - main-node
