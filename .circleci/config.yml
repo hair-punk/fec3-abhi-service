@@ -2,8 +2,15 @@
  orbs:
    newman: postman/newman@0.0.2
  jobs:
+   build:
+     steps:
+       - checkout
+       - run: npm install
    postman:
      executor: newman/postman-newman-docker
+     docker:
+       - image: circleci/node:lts
+       - image: circleci/mongo:latest
      steps:
        - checkout
        - run: npm install
