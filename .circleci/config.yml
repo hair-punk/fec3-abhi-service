@@ -12,7 +12,7 @@
      steps:
        - checkout
  #      - run: npm install
-  #     - run: npm run express-server
+       - run: npm run express-server
        - newman/newman-run:
            collection: .circleci/postman_test.json
    #        timeout: '1000'
