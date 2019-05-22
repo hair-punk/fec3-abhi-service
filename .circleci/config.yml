@@ -1,6 +1,7 @@
  version: 2.1
  orbs:
    newman: postman/newman@0.0.2
+ jobs:
    postman:
      executor: newman/postman-newman-docker
      steps:
@@ -15,3 +16,9 @@
        - run: echo "A first hello"
        - run: npm install
        - run: npm test
+ workflows:
+   version: 2.1
+   postman_and_main:
+     jobs:
+      - postman
+      - main-node
