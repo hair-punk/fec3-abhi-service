@@ -10,7 +10,7 @@
   "scripts": {
     "seed-db": "node ./DBseed/itemGen.js",
     "front-end": "webpack -d --watch",
-    "express-server": "nodemon server/index.js"
+    "express-server": "NODE_ENV=development nodemon server/index.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
