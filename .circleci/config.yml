@@ -7,7 +7,7 @@
      steps:
        - checkout
        - newman/newman-run:
-           collection: postman-express-test.postman_collection.json
+           collection: ./postman-express-test.postman_collection.json
    main-node:
      docker:
        - image: circleci/node:lts
