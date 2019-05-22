@@ -6,6 +6,7 @@
      executor: newman/postman-newman-docker
      steps:
        - checkout
+       - run: npm install
        - run: npm run express-server
        - newman/newman-run:
            collection: .circleci/postman_test.json
@@ -15,7 +16,6 @@
      steps:
        - checkout
        - run: echo "A first hello"
-       - run: npm install
        - run: npm test
  workflows:
    version: 2.1
