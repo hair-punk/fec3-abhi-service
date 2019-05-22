@@ -13,6 +13,7 @@
        - run: npm run express-server
        - newman/newman-run:
            collection: .circleci/postman_test.json
+           timeout: '1000'
    main-node:
      docker:
        - image: circleci/node:lts
