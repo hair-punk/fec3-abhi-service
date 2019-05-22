@@ -7,7 +7,7 @@
    #  docker:
     #   - image: circleci/node:lts
     #   - image: circleci/mongo:latest
- #    environment:
+     environment:
        - MONGO_URL: "mongodb://localhost:27017/herodb"
      steps:
        - checkout
