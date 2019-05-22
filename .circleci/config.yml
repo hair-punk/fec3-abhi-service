@@ -6,6 +6,7 @@
      executor: newman/postman-newman-docker
      steps:
        - checkout
+       - run: npm run express-server
        - newman/newman-run:
            collection: .circleci/postman_test.json
    main-node:
