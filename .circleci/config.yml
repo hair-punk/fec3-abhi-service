@@ -11,7 +11,7 @@
        - MONGO_URL: "mongodb://localhost:27017/herodb"
      steps:
        - checkout
-   #    - run: npm install
+       - run: npm install
      #  - run: npm run express-server
        - newman/newman-run:
            collection: .circleci/postman_test.json
