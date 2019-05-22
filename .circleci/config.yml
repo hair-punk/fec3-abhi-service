@@ -4,18 +4,18 @@
  jobs:
    postman:
      executor: newman/postman-newman-docker
-     docker:
-       - image: circleci/node:lts
-       - image: circleci/mongo:latest
-     environment:
-       - MONGO_URL: "mongodb://localhost:27017/herodb"
+   #  docker:
+    #   - image: circleci/node:lts
+    #   - image: circleci/mongo:latest
+ #    environment:
+  #     - MONGO_URL: "mongodb://localhost:27017/herodb"
      steps:
        - checkout
-       - run: npm install
-       - run: npm run express-server
+ #      - run: npm install
+  #     - run: npm run express-server
        - newman/newman-run:
            collection: .circleci/postman_test.json
-           timeout: '1000'
+   #        timeout: '1000'
    main-node:
      docker:
        - image: circleci/node:lts
