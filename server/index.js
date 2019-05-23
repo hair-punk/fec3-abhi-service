@@ -5,7 +5,7 @@ let port = 3007;
 
 
 let app = express();
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/../dist'));
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
