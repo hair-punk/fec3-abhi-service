@@ -7,6 +7,22 @@
 	"item": [
 		{
 			"name": "gameObject-get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c09b4624-c1fa-49df-b323-26a57bf0e6d6",
+						"exec": [
+							"const jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function(){",
+							"    pm.response.to.be.success;",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
