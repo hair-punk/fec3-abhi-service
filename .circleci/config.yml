@@ -16,7 +16,7 @@
  #      - newman/newman-run:
    #        collection: .circleci/postman_test.json
    #        timeout: '1000'
-   main-node:
+   jest:
      docker:
        - image: circleci/node:lts
        - image: circleci/mongo:latest
@@ -31,4 +31,4 @@
    postman_and_main:
      jobs:
   #    - postman
-      - main-node
+      - jest
