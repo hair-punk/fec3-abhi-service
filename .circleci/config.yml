@@ -24,6 +24,7 @@
        - MONGO_URL: "mongodb://localhost:27017/herodb"
      steps:
        - checkout
+       - run: npm install
        - run: echo "A first hello"
        - run: npm test
  workflows:
