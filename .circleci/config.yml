@@ -30,7 +30,7 @@
            keys:
              - cache1-{{ checksum "package.json" }}
        - run: ls -l ~/project
-       - run: sudo npm install -g
+       - run: sudo npm install
        - save_cache:
            paths:
              - node_modules
