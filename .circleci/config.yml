@@ -27,7 +27,7 @@
        - run: npm update
        - restore_cache:
            keys:
-             - cache1-{{ checksum "package.json"}}
+             - cache1-{{ checksum "package.json" }}
        - checkout
        - run: npm install -g
        - save_cache:
