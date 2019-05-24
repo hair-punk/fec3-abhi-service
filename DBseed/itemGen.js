@@ -74,4 +74,4 @@ function populate(){
   var userMetaTags=['action', 'adventure', 'casual', 'strategy', 'rpg', 'massively multiplayer', 'racing', 'puzzle', 'VR', 'Horror', 'Co-op', 'Retro', 'FPS', 'first person', 'survival', 'arcade', 'sandbox', 'space', 'zombies', 'relaxing', 'rogue-like', 'sports', 'RTS', 'fighting', 'Tower Defense', 'Cyberpunk', 'arena shooter', 'steampunk', 'rhythm', 'pirates', 'ninja', 'battle royale', 'cinematic', 'cats'];
 
   populate();
-  mongoose.disconnect();
+  await mongoose.disconnect();
