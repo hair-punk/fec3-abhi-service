@@ -61,7 +61,6 @@ function populate(){
       console.log(err);
     })
   }
-  mongoose.disconnect();
 }
 
   var companyPrefixes = ['Creative', 'Electronic', 'Game', 'Rocket', 'Brutal', 'Frozen'];
