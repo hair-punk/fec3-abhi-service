@@ -25,7 +25,7 @@
      steps:
        - checkout
        - run: npm install
-       - run: npm seed-db
+       - run: npm run seed-db
        - run: npm test
  workflows:
    version: 2.1
