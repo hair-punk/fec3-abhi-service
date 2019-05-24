@@ -29,7 +29,7 @@
            keys:
              - cache1-{{ checksum "package.json" }}
        - checkout
-       - ls -l ~/project
+       - run: ls -l ~/project
        - run: npm install -g
        - save_cache:
            paths:
