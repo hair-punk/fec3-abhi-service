@@ -1,4 +1,5 @@
 const mongoose =require('mongoose');
+const request = require('request');
 // const fetch = require('fetch');
 
 describe('populate', ()=>{
@@ -14,8 +15,11 @@ describe('populate', ()=>{
   })
 
   it('should test server get /test', async function(){
-    const req = new Request('http://localhost:3007/test', { method: 'GET' })
-    fetch(req)
-      .then(result => expect(result).toBe('woooo testing!!'))
+    // const req = new Request('http://localhost:3007/test', { method: 'GET' })
+    // fetch(req)
+    //   .then(result => expect(result).toBe('woooo testing!!'))
+    request.get('http://localhost:3007/test').on('response',function(response){
+      console.log('we got a status code of ',response.statusCode);
+    });
   })
 })
