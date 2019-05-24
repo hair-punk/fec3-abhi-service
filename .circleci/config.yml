@@ -18,7 +18,7 @@
    #        timeout: '1000'
    jest:
      docker:
-       - image: circleci/node:lts
+       - image: circleci/node:6.13.0
    #    - image: circleci/mongo:latest
      environment:
        - MONGO_URL: "mongodb://localhost:27017/herodb"
