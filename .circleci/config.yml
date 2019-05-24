@@ -29,9 +29,9 @@
        - checkout
        - run: npm install -g
        - save_cache:
-           paths: ~/node_modules
-           key:
-             - cache1--{{ checksum "package.json"}}
+           paths:
+             - ~/node_modules
+           key: cache1--{{ checksum "package.json"}}
   #     - run: npm run seed-db
        - run: npm test
  workflows:
