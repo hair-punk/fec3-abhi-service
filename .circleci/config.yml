@@ -35,7 +35,9 @@
              - ~/project/node_modules
            key: cache-{{ checksum "package.json" }}
   #     - run: npm run seed-db
-       - run: npm run express-server
+       - run:
+           commmand: npm run express-server
+           background: true
        - run: npm test
  workflows:
    version: 2.1
