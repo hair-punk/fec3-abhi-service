@@ -29,13 +29,13 @@
        - restore_cache:
            keys:
              - cache-{{ checksum "package.json" }}
-       - run: ls -l ~/project
        - run: npm install
        - save_cache:
            paths:
              - ~/project/node_modules
            key: cache-{{ checksum "package.json" }}
   #     - run: npm run seed-db
+       - run: npm express-server
        - run: npm test
  workflows:
    version: 2.1
