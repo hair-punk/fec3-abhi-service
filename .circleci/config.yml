@@ -38,6 +38,7 @@
        - run:
            command: npm run express-server
            background: true
+       - run: sleep 2s
        - run: ps aux
        - run: npm test
  workflows:
