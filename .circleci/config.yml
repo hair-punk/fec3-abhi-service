@@ -36,7 +36,7 @@
            key: cache-{{ checksum "package.json" }}
   #     - run: npm run seed-db
        - run:
-           commmand: npm run express-server
+           command: npm run express-server
            background: true
        - run: npm test
  workflows:
