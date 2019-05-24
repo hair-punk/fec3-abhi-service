@@ -33,7 +33,7 @@
        - run: npm install
        - save_cache:
            paths:
-             - node_modules
+             - ~/node_modules
            key: cache1-{{ checksum "package.json" }}
   #     - run: npm run seed-db
        - run: npm test
