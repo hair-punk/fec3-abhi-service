@@ -1,9 +1,9 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
+  "name": "exhaust-video-player",
+  "version": "0.1",
+  "description": "gonna be great",
+  "author": "abhi",
+  "license": "Open Source",
   "engines": {
     "node": ">=6.13.0"
   },
