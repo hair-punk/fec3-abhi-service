@@ -23,8 +23,14 @@
      environment:
        - MONGO_URL: "mongodb://localhost:27017/herodb"
      steps:
+       - restore_cache:
+           keys:
+             - cache1--{{ checksum "package.json"}}
        - checkout
-       - run: npm install
+       - run: npm install -g
+       - save_cache:
+           key:
+             - cache1--{{ checksum "package.json"}}
   #     - run: npm run seed-db
        - run: npm test
  workflows:
