@@ -19,10 +19,10 @@
    jest:
      docker:
        - image: circleci/node:lts
-       - image: circleci/mongo:latest
+   #    - image: circleci/mongo:latest
      environment:
        - MONGO_URL: "mongodb://localhost:27017/herodb"
-     working_directory: ~/
+ #    working_directory: ~/
      steps:
        - restore_cache:
            keys:
