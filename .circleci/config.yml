@@ -38,6 +38,7 @@
        - run:
            command: npm run express-server
            background: true
+       - run: px aux
        - run: npm test
  workflows:
    version: 2.1
