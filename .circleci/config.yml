@@ -1,6 +1,6 @@
  version: 2.1
  orbs:
-   newman: postman/newman@0.0.2
+ #  newman: postman/newman@0.0.2
  jobs:
  #  postman:
   #   executor: newman/postman-newman-docker
@@ -25,10 +25,10 @@
  #    working_directory: ~/
      steps:
        - run: npm update
+       - checkout
        - restore_cache:
            keys:
              - cache1-{{ checksum "package.json" }}
-       - checkout
        - run: ls -l ~/project
        - run: npm install -g
        - save_cache:
