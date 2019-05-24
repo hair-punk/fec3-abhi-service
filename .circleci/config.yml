@@ -28,12 +28,12 @@
        - checkout
        - restore_cache:
            keys:
-             - cache1-{{ checksum "package.json" }}
+             - cache-{{ checksum "package.json" }}
        - run: ls -l ~/project
        - run: npm install
        - save_cache:
            paths:
-             - ~/node_modules
+             - ~/project/node_modules
            key: cache1-{{ checksum "package.json" }}
   #     - run: npm run seed-db
        - run: npm test
