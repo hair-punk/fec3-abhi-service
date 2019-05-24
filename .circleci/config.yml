@@ -24,6 +24,7 @@
        - MONGO_URL: "mongodb://localhost:27017/herodb"
  #    working_directory: ~/
      steps:
+       - run ls ../
        - restore_cache:
            keys:
              - cache1--{{ checksum "package.json"}}
