@@ -1,5 +1,5 @@
 const mongoose =require('mongoose');
-const fetch = require('fetch');
+// const fetch = require('fetch');
 
 describe('populate', ()=>{
   beforeAll(async function(){
