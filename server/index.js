@@ -14,6 +14,10 @@ app.get('/gameObject', async function(req,res){
   res.send(await query.query(req.query.id));
 })
 
+app.get('/test', async function (req, res) {
+  res.send('woooo testing!!');
+})
+
 app.listen(port, function(){
   console.log(`listening on port ${port}`);
 })

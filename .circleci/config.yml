@@ -1,6 +1,6 @@
  version: 2.1
  orbs:
-   newman: postman/newman@0.0.2
+ #  newman: postman/newman@0.0.2
  jobs:
  #  postman:
   #   executor: newman/postman-newman-docker
@@ -16,19 +16,34 @@
  #      - newman/newman-run:
    #        collection: .circleci/postman_test.json
    #        timeout: '1000'
-   main-node:
+   jest:
      docker:
-       - image: circleci/node:lts
-       - image: circleci/mongo:latest
+       - image: circleci/node:10.15.3
+       - image: circleci/mongo:4.0.9
      environment:
        - MONGO_URL: "mongodb://localhost:27017/herodb"
+ #    working_directory: ~/
      steps:
+       - run: npm update
        - checkout
-       - run: echo "A first hello"
+       - restore_cache:
+           keys:
+             - cache-{{ checksum "package.json" }}
+       - run: npm install
+       - save_cache:
+           paths:
+             - ~/project/node_modules
+           key: cache-{{ checksum "package.json" }}
+  #     - run: npm run seed-db
+       - run:
+           command: npm run express-server
+           background: true
+       - run: sleep 2s
+       - run: ps aux
        - run: npm test
  workflows:
    version: 2.1
    postman_and_main:
      jobs:
   #    - postman
-      - main-node
+      - jest

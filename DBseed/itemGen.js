@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-var db = mongoose.connect("mongodb://localhost/herodb");
+
 var DB_SIZE = 100;
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
@@ -21,7 +21,7 @@ const gameItem = new Schema(
   }
 );
 var Games = mongoose.model('Game', gameItem);
-function createEntry(num){
+async function createEntry(num){
   var entry = {};
   entry.id = num;
   entry.title = gameNameAdjectives[(Math.floor(Math.random()*gameNameAdjectives.length))]+ gameNameNouns[(Math.floor(Math.random()*gameNameNouns.length))];
@@ -43,9 +43,12 @@ function createEntry(num){
   }
   return entry;
 }
-function populate(){
-  for(var x = 0; x <DB_SIZE;x++){
-    var newData = createEntry(x);
+
+async function populate(){
+  return new Promise(()=>{
+      for(var x = 0; x <DB_SIZE;x++){
+    var newData =  createEntry(x);
+    // console.log(newData);
     var newGame = new Games({
       gameId:newData.id,
       gameTitle:newData.title,
@@ -61,6 +64,8 @@ function populate(){
       console.log(err);
     })
   }
+  });
+
 }
 
   var companyPrefixes = ['Creative', 'Electronic', 'Game', 'Rocket', 'Brutal', 'Frozen'];
@@ -72,5 +77,13 @@ function populate(){
   var gameNameAdjectives=['brutal', 'realistic', 'violent', 'tactical', 'interesting', 'nonlinear', 'critical', 'futuristic', 'unoriginal', 'exciting', 'fun', 'nostalgic','addicting'];
 
   var userMetaTags=['action', 'adventure', 'casual', 'strategy', 'rpg', 'massively multiplayer', 'racing', 'puzzle', 'VR', 'Horror', 'Co-op', 'Retro', 'FPS', 'first person', 'survival', 'arcade', 'sandbox', 'space', 'zombies', 'relaxing', 'rogue-like', 'sports', 'RTS', 'fighting', 'Tower Defense', 'Cyberpunk', 'arena shooter', 'steampunk', 'rhythm', 'pirates', 'ninja', 'battle royale', 'cinematic', 'cats'];
-
-  populate();
+  // populate();
+async function storeGames(){
+  var db = mongoose.connect("mongodb://localhost/herodb");
+  await populate();
+  await mongoose.disconnect(()=>{console.log('mongoose connection closed')});
+  db.close();
+}
+storeGames();
+// populate();
+ mongoose.disconnect();
