@@ -1,6 +1,6 @@
 const mongoose =require('mongoose');
 const request = require('request');
-const dbQuery = require('query');
+const dbQuery = require('../database/index.js');
 
 describe('populate', ()=>{
   beforeAll(async function(){
@@ -14,7 +14,7 @@ describe('populate', ()=>{
     expect(1).toEqual(1);
   })
   it('should test the database and return the first item', async function(){
-    expect(typeof await dbQuery(1)).toEqual('object');
+    expect(typeof await dbQuery.query(1)).toEqual('object');
   })
 
   it('should test server get /test', async function(){
