@@ -41,10 +41,6 @@ return mongoose.connect("mongodb://localhost/herodb");
     console.log('mongoose could not connect')
   }
 
-// mongoose.connection.on("open", function(ref) {
-//   console.log("Connected to mongo server.");
-
-// });
 }
 
 async function closeConnection(){
@@ -93,44 +89,11 @@ async function addGame(id){
         await newGame.save()
         resolve();
     });
-  // // return new Promise((resolve, reject)=>{
-  //   for(var x = 0; x <DB_SIZE;x++){
-  //     await new Promise(resolve =>{
-  //       var newData =  createEntry(x);
-  //       // console.log(newData);
-  //       var newGame = new Games({
-  //         gameId:newData.id,
-  //         gameTitle:newData.title,
-  //         gameDescription:newData.description,
-  //         gameDeveloper:newData.devName,
-  //         gamePublisher:newData.pubName,
-  //         releaseDate: newData.releaseDate,
-  //         metaTags:newData.metaTags,
-  //         videoFileNames:newData.videoFileNames,
-  //         photoFileNames:newData.photoFileNames
-  //       });
-  //       newGame.save((err)=>{
-  //         if(err){
-  //           console.log(err);
-  //         console.log('item did not save sucessfully');
-  //         }
-  //       })
-  //       resolve();
-  //     })
-
-  // }
-
-  // });
 
 };
 
-  // populate();
 async function storeGames(){
-  //  populate()
-  //  .then(()=>{
-  // console.log('trying to disconnect');
-  // mongoose.disconnect(()=>{console.log('mongoose connection closed')});
-  // });
+
   for(let i = 1; i <= 100;i++){
     await addGame(i);
     console.log('back here!', i)
@@ -138,8 +101,3 @@ async function storeGames(){
     mongoose.disconnect();
 }
 
-
-
-
-// populate();
- //mongoose.disconnect();
