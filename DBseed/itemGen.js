@@ -1,8 +1,17 @@
+
+  var companyPrefixes = ['Creative', 'Electronic', 'Game', 'Rocket', 'Brutal', 'Frozen'];
+
+  var companySuffixes = ['soft', 'corp', ' Media Group', ' Entertainment Systems', ' Solutions', ' Games'];
+
+  var gameNameNouns = ['day', 'simulator', 'wars', 'land', 'man', ':the game', 'planet','craft', 'fight', 'tanks', 'racer', 'world', 'tycoon', 'scape'];
+
+  var gameNameAdjectives=['brutal', 'realistic', 'violent', 'tactical', 'interesting', 'nonlinear', 'critical', 'futuristic', 'unoriginal', 'exciting', 'fun', 'nostalgic','addicting'];
+
+  var userMetaTags=['action', 'adventure', 'casual', 'strategy', 'rpg', 'massively multiplayer', 'racing', 'puzzle', 'VR', 'Horror', 'Co-op', 'Retro', 'FPS', 'first person', 'survival', 'arcade', 'sandbox', 'space', 'zombies', 'relaxing', 'rogue-like', 'sports', 'RTS', 'fighting', 'Tower Defense', 'Cyberpunk', 'arena shooter', 'steampunk', 'rhythm', 'pirates', 'ninja', 'battle royale', 'cinematic', 'cats'];
 const mongoose = require('mongoose');
 
 var DB_SIZE = 100;
 const Schema = mongoose.Schema;
-const ObjectId = Schema.ObjectId;
 const S3VideoCollectionSize = 163;
 const S3PhotoCollectionSize = 100;
 
@@ -20,6 +29,26 @@ const gameItem = new Schema(
 
   }
 );
+(async function seed(){
+  await openConnection().then(storeGames);
+  // closeConnection();
+})()
+async function openConnection(){
+  try{
+return mongoose.connect("mongodb://localhost/herodb");
+  }catch(err){
+    console.log('mongoose could not connect')
+  }
+
+// mongoose.connection.on("open", function(ref) {
+//   console.log("Connected to mongo server.");
+
+// });
+}
+
+async function closeConnection(){
+  mongoose.disconnect(()=>{console.log('mongoose connection closed')});
+}
 var Games = mongoose.model('Game', gameItem);
 async function createEntry(num){
   var entry = {};
@@ -44,46 +73,74 @@ async function createEntry(num){
   return entry;
 }
 
-async function populate(){
-  return new Promise(()=>{
-      for(var x = 0; x <DB_SIZE;x++){
-    var newData =  createEntry(x);
-    // console.log(newData);
-    var newGame = new Games({
-      gameId:newData.id,
-      gameTitle:newData.title,
-      gameDescription:newData.description,
-      gameDeveloper:newData.devName,
-      gamePublisher:newData.pubName,
-      releaseDate: newData.releaseDate,
-      metaTags:newData.metaTags,
-      videoFileNames:newData.videoFileNames,
-      photoFileNames:newData.photoFileNames
+async function addGame(id){
+    return new Promise(async function(resolve){
+             var newData = await createEntry(id);
+        var newGame = new Games({
+          gameId:newData.id,
+          gameTitle:newData.title,
+          gameDescription:newData.description,
+          gameDeveloper:newData.devName,
+          gamePublisher:newData.pubName,
+          releaseDate: newData.releaseDate,
+          metaTags:newData.metaTags,
+          videoFileNames:newData.videoFileNames,
+          photoFileNames:newData.photoFileNames
+        });
+        newGame.save((err)=>{
+          if(err){
+          console.log('item did not save sucessfully');
+          }
+        })
+        resolve();
     });
-    newGame.save(function(err){
-      console.log(err);
-    })
-  }
-  });
+  // // return new Promise((resolve, reject)=>{
+  //   for(var x = 0; x <DB_SIZE;x++){
+  //     await new Promise(resolve =>{
+  //       var newData =  createEntry(x);
+  //       // console.log(newData);
+  //       var newGame = new Games({
+  //         gameId:newData.id,
+  //         gameTitle:newData.title,
+  //         gameDescription:newData.description,
+  //         gameDeveloper:newData.devName,
+  //         gamePublisher:newData.pubName,
+  //         releaseDate: newData.releaseDate,
+  //         metaTags:newData.metaTags,
+  //         videoFileNames:newData.videoFileNames,
+  //         photoFileNames:newData.photoFileNames
+  //       });
+  //       newGame.save((err)=>{
+  //         if(err){
+  //           console.log(err);
+  //         console.log('item did not save sucessfully');
+  //         }
+  //       })
+  //       resolve();
+  //     })
 
-}
+  // }
 
-  var companyPrefixes = ['Creative', 'Electronic', 'Game', 'Rocket', 'Brutal', 'Frozen'];
+  // });
 
-  var companySuffixes = ['soft', 'corp', ' Media Group', ' Entertainment Systems', ' Solutions', ' Games'];
+};
 
-  var gameNameNouns = ['day', 'simulator', 'wars', 'land', 'man', ':the game', 'planet','craft', 'fight', 'tanks', 'racer', 'world', 'tycoon', 'scape'];
-
-  var gameNameAdjectives=['brutal', 'realistic', 'violent', 'tactical', 'interesting', 'nonlinear', 'critical', 'futuristic', 'unoriginal', 'exciting', 'fun', 'nostalgic','addicting'];
-
-  var userMetaTags=['action', 'adventure', 'casual', 'strategy', 'rpg', 'massively multiplayer', 'racing', 'puzzle', 'VR', 'Horror', 'Co-op', 'Retro', 'FPS', 'first person', 'survival', 'arcade', 'sandbox', 'space', 'zombies', 'relaxing', 'rogue-like', 'sports', 'RTS', 'fighting', 'Tower Defense', 'Cyberpunk', 'arena shooter', 'steampunk', 'rhythm', 'pirates', 'ninja', 'battle royale', 'cinematic', 'cats'];
   // populate();
 async function storeGames(){
-  var db = mongoose.connect("mongodb://localhost/herodb");
-  await populate();
-  await mongoose.disconnect(()=>{console.log('mongoose connection closed')});
-  db.close();
+  //  populate()
+  //  .then(()=>{
+  // console.log('trying to disconnect');
+  // mongoose.disconnect(()=>{console.log('mongoose connection closed')});
+  // });
+  for(let i = 1; i <= 100;i++){
+    await addGame(i)
+    console.log('back here!', i)
+    }
+
 }
-storeGames();
+
+
+
+
 // populate();
- mongoose.disconnect();
+ //mongoose.disconnect();
