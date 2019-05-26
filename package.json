@@ -20,7 +20,8 @@
     "mongoose": "^5.5.9",
     "nodemon": "^1.19.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-player": "^1.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
