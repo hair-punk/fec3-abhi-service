@@ -21,7 +21,6 @@ describe('populate', ()=>{
 
   it('should test server get /test', async function(){
     request.get('http://localhost:3007/test').on('response',function(response){
-      console.log('we got a status code of ',response.statusCode);
     });
   })
 })
