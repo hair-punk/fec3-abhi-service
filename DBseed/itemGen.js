@@ -30,9 +30,10 @@ const gameItem = new Schema(
   }
 );
 (async function seed(){
-  await openConnection().then(storeGames);
-  // closeConnection();
+  await openConnection().then(await storeGames)
+  //.then(closeConnection);
 })()
+
 async function openConnection(){
   try{
 return mongoose.connect("mongodb://localhost/herodb");
@@ -49,7 +50,9 @@ return mongoose.connect("mongodb://localhost/herodb");
 async function closeConnection(){
   mongoose.disconnect(()=>{console.log('mongoose connection closed')});
 }
+
 var Games = mongoose.model('Game', gameItem);
+
 async function createEntry(num){
   var entry = {};
   entry.id = num;
@@ -87,11 +90,7 @@ async function addGame(id){
           videoFileNames:newData.videoFileNames,
           photoFileNames:newData.photoFileNames
         });
-        newGame.save((err)=>{
-          if(err){
-          console.log('item did not save sucessfully');
-          }
-        })
+        await newGame.save()
         resolve();
     });
   // // return new Promise((resolve, reject)=>{
@@ -133,10 +132,10 @@ async function storeGames(){
   // mongoose.disconnect(()=>{console.log('mongoose connection closed')});
   // });
   for(let i = 1; i <= 100;i++){
-    await addGame(i)
+    await addGame(i);
     console.log('back here!', i)
     }
-
+    mongoose.disconnect();
 }
 
 
