@@ -34,7 +34,7 @@
            paths:
              - ~/project/node_modules
            key: cache-{{ checksum "package.json" }}
-  #     - run: npm run seed-db
+       - run: npm run seed-db
        - run:
            command: npm run express-server
            background: true

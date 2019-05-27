@@ -13,10 +13,23 @@ describe('populate', ()=>{
   it('should be the first test', async function(){
     expect(1).toEqual(1);
   })
-  it('should test the database and return the first item', async function(){
-    var firstItem = dbQuery.query(1);
-   // expect(typeof await dbQuery.query(1)).toEqual('object');
-  //  expect(firstItem).toHaveProperty('gameId');
+  it('should test the database and return the first item and test it for its properties', async function(){
+    var firstItem = await dbQuery.query(1);
+    firstItem = firstItem[0]
+    console.log(firstItem);
+   expect(typeof firstItem).toEqual('object');
+   expect(firstItem).toHaveProperty('gameId');
+   expect(firstItem).toHaveProperty('gameTitle');
+  //  expect(firstItem).toHaveProperty('metaTags');
+  //  expect(firstItem).toHaveProperty(['videoFileNames']);
+  // // expect(firstItem).toHaveProperty('photoFileNames');
+   expect(firstItem).toHaveProperty('gameId');
+   expect(firstItem).toHaveProperty('gameTitle');
+   expect(firstItem).toHaveProperty('gameDescription');
+   expect(firstItem).toHaveProperty('gameDeveloper');
+   expect(firstItem).toHaveProperty('gamePublisher');
+   expect(firstItem).toHaveProperty('releaseDate');
+
   })
 
   it('should test server get /test', async function(){
