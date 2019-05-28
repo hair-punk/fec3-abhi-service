@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 
 
 app.get('/gameObject', async function(req,res){
+
   res.send(await query.query(req.query.id));
 })
 

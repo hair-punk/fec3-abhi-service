@@ -31,7 +31,6 @@ const gameItem = new Schema(
 );
 (async function seed(){
   await openConnection().then(await storeGames)
-  //.then(closeConnection);
 })()
 
 async function openConnection(){
