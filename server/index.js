@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const query = require('../database/index.js')
+const AWS = require('aws-sdk');
 let port = 3007;
 
 
