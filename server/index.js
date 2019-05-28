@@ -25,14 +25,26 @@ app.use(bodyParser.json());
 
 app.get('/gameObject', async function(req,res){
   videoparams.Key = req.query.id+'.mp4'
-  var request =s3.getObject(videoparams);
-  var object = request.promise();
-  object.then((data)=>{console.log(data)}).catch((err)=>{
-    console.log('error')
-  })
+  var request =s3.getSignedUrl('getObject',videoparams);
+  // var object = request.promise();
+  // object.then((data)=>{console.log(data)}).catch((err)=>{
+  //   console.log('error')
+  // })
+   var object =  (await query.query(req.query.id))[0]
+   object = JSON.parse(JSON.stringify(object));
 
-  // console.log(object);
-  res.send(await query.query(req.query.id));
+   videoparams.Key = toString(object['videoFileNames'][0])
+   object.videoLink1 = s3.getSignedUrl('getObject',videoparams);
+   videoparams.Key = toString(object['videoFileNames'][1])
+   object.videoLink2 = s3.getSignedUrl('getObject',videoparams);
+   videoparams.Key = toString(object['videoFileNames'][2])
+   object.videoLink3 = s3.getSignedUrl('getObject',videoparams);
+   photoparams.Key = toString(object['photoFileNames'][0])
+   object.photoLink1 = s3.getSignedUrl('getObject', photoparams)
+   photoparams.Key = toString(object['photoFileNames'][1])
+   object.photoLink2 = s3.getSignedUrl('getObject', photoparams)
+   console.log(object);
+  res.send(object);
 })
 
 app.get('/test', async function (req, res) {
