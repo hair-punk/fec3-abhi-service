@@ -19,8 +19,8 @@ componentDidMount(){
 render(){
   var urls = this.props.thumburls.map((val)=><img height="77px" width="77px" src={val} />);
   console.log(urls);
-return (<div>{urls}{urls}{urls}}</div>)
-
+// return (<div style={{width: "600px"}}>{urls}{urls}{urls}}</div>)
+return (<PerfectScrollbar minScrollbarLength = {600}>{urls}{urls}{urls}</PerfectScrollbar>);
 }
 }
 

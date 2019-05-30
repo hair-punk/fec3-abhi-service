@@ -51,13 +51,13 @@ class Player extends React.Component {
     console.log(this.state.videoFileUrls)
     return (<div>
     <ReactPlayer url={this.state.videoFileUrls[0]} width ="600px" height="336px" playing />
-        <Gallery width ="600px" thumburls={this.state.thumbnailFileUrls} filenames = {this.state.videoFileNames} />
-    {/* <PerfectScrollbar minScrollbarLength = {600}><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /></PerfectScrollbar> */}
+        {/* <Gallery width ="600px" thumburls={this.state.thumbnailFileUrls} filenames = {this.state.videoFileNames} /> */}
+    <PerfectScrollbar minScrollbarLength = {600}><Gallery width ="600px" thumburls={this.state.thumbnailFileUrls} filenames = {this.state.videoFileNames} /></PerfectScrollbar>
     </div>)
 
 
 
 
-  }
+    }
 }
 ReactDOM.render(<Player />, document.getElementById("player"));
