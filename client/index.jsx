@@ -11,20 +11,24 @@ class Player extends React.Component {
     metaTags:[],
     videoFileNames:[],
     photoFileNames:[],
+    thumbnailFileNames:[],
     gameId:'',
     gameTitle:'',
     gameDescription:'',
     gameDeveloper:'',
     gamePublisher:'',
-    releaseDate:''
+    releaseDate:'',
+    videoFileUrls:[],
+    photoFileUrls:[],
+    thumbnailFileUrls:[]
     };
   }
   componentDidMount(){
     console.log('component did mount')
-    fetch('http://localhost:3007/gameObject'+'?id='+1).then(response=>{
+    fetch('http://localhost:3007/gameObject'+'?id='+Math.floor(Math.random()*100)).then(response=>{
       return response.text()
     }).then(data=>{
-      var responsedata = JSON.parse(data)[0];
+      var responsedata = JSON.parse(data);
       console.log(responsedata)
       this.setState((state,props)=>({
       gameId:responsedata.gameId,
@@ -35,13 +39,16 @@ class Player extends React.Component {
       releaseDate:responsedata.releaseDate,
       metaTags:responsedata.metaTags,
       videoFileNames:responsedata.videoFileNames,
-      photoFileNames:responsedata.photoFileNames
+      photoFileNames:responsedata.photoFileNames,
+      videoFileUrls:responsedata.VideoLinks,
+      photoFileUrls:responsedata.PhotoLinks,
+      thumbnailFileUrls:responsedata.ThumbnailLinks
       }));
     })
   }
   render(){
     return (<div>
-    <ReactPlayer url="https://s3-us-west-1.amazonaws.com/exhaust-media-test/100.mp4" playing />
+    <ReactPlayer url={this.state.videoFileUrls[0]} playing />
     <PerfectScrollbar><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /></PerfectScrollbar>
     </div>)
   }
