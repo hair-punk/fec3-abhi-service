@@ -12,7 +12,7 @@ const mongoose = require('mongoose');
 
 var DB_SIZE = 100;
 const Schema = mongoose.Schema;
-const S3VideoCollectionSize = 163;
+const S3VideoCollectionSize = 156;
 const S3PhotoCollectionSize = 100;
 
 const gameItem = new Schema(
@@ -33,7 +33,7 @@ const gameItem = new Schema(
   await openConnection().then(await storeGames)
 })()
 
-async function openConnection(){
+function openConnection(){
   try{
 return mongoose.connect("mongodb://localhost/herodb");
   }catch(err){
@@ -42,13 +42,9 @@ return mongoose.connect("mongodb://localhost/herodb");
 
 }
 
-async function closeConnection(){
-  mongoose.disconnect(()=>{console.log('mongoose connection closed')});
-}
-
 var Games = mongoose.model('Game', gameItem);
 
-async function createEntry(num){
+ function createEntry(num){
   var entry = {};
   entry.id = num;
   entry.title = gameNameAdjectives[(Math.floor(Math.random()*gameNameAdjectives.length))]+ gameNameNouns[(Math.floor(Math.random()*gameNameNouns.length))];
@@ -95,7 +91,6 @@ async function storeGames(){
 
   for(let i = 1; i <= 100;i++){
     await addGame(i);
-    console.log('back here!', i)
     }
     mongoose.disconnect();
 }
