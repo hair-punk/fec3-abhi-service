@@ -24,6 +24,7 @@
     "react-dom": "^16.8.6",
     "react-perfect-scrollbar": "^1.5.2",
     "react-player": "^1.11.0",
+    "styled-components": "^4.2.1",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
