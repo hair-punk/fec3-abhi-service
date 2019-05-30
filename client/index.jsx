@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import ReactPlayer from 'react-player'
 import PerfectScrollbar from 'react-perfect-scrollbar'
 import styled from 'styled-components'
+import Gallery from './gallery.jsx'
 
 //const request = require('request');
 
@@ -13,7 +14,6 @@ class Player extends React.Component {
     metaTags:[],
     videoFileNames:[],
     photoFileNames:[],
-    thumbnailFileNames:[],
     gameId:'',
     gameTitle:'',
     gameDescription:'',
@@ -26,7 +26,6 @@ class Player extends React.Component {
     };
   }
   componentDidMount(){
-    console.log('component did mount')
     fetch('http://localhost:3007/gameObject'+'?id='+Math.floor(Math.random()*100)).then(response=>{
       return response.text()
     }).then(data=>{
@@ -49,10 +48,16 @@ class Player extends React.Component {
     })
   }
   render(){
+    console.log(this.state.videoFileUrls)
     return (<div>
-    <ReactPlayer url={this.state.videoFileUrls[0]} width ="600px" height="336px"playing />
-    <PerfectScrollbar minScrollbarLength = {600}><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /></PerfectScrollbar>
+    <ReactPlayer url={this.state.videoFileUrls[0]} width ="600px" height="336px" playing />
+        <Gallery width ="600px" thumburls={this.state.thumbnailFileUrls} filenames = {this.state.videoFileNames} />
+    {/* <PerfectScrollbar minScrollbarLength = {600}><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /><img src="https://s3-us-west-1.amazonaws.com/exhaust-media-test-2/1.jpg" alt="Smiley face" height="70" width="70" /></PerfectScrollbar> */}
     </div>)
+
+
+
+
   }
 }
 ReactDOM.render(<Player />, document.getElementById("player"));
