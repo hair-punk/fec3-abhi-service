@@ -51,8 +51,8 @@ class Player extends React.Component {
     console.log(this.state.videoFileUrls)
     return (<div>
     <ReactPlayer url={this.state.videoFileUrls[0]} width ="600px" height="336px" playing />
-        {/* <Gallery width ="600px" thumburls={this.state.thumbnailFileUrls} filenames = {this.state.videoFileNames} /> */}
-    <PerfectScrollbar minScrollbarLength = {600}><Gallery width ="600px" thumburls={this.state.thumbnailFileUrls} filenames = {this.state.videoFileNames} /></PerfectScrollbar>
+    <Gallery width ="600px" thumburls={this.state.thumbnailFileUrls} filenames = {this.state.videoFileNames} />
+    {/* <PerfectScrollbar minScrollbarLength = {600}><Gallery width ="600px" thumburls={this.state.thumbnailFileUrls} filenames = {this.state.videoFileNames} /></PerfectScrollbar> */}
     </div>)
 
 
