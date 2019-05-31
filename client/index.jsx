@@ -6,6 +6,8 @@ import styled from 'styled-components'
 // import Gallery from './gallery.jsx'
 import Player from'./Player.jsx'
 
+
+
 class HeroBanner extends React.Component{
   constructor(props){
     super(props);
@@ -22,17 +24,14 @@ class HeroBanner extends React.Component{
       videoFileUrls:[],
       photoFileUrls:[],
       thumbnailFileUrls:[],
-      currentlyPlaying:''
       };
-      this.videoClicked = this.videoClicked.bind(this);
-      this.photoClicked = this.photoClicked.bind(this);
+
   }
   componentDidMount(){
     fetch('http://localhost:3007/gameObject'+'?id='+Math.floor(Math.random()*100)).then(response=>{
       return response.text()
     }).then(data=>{
       var responsedata = JSON.parse(data);
-      console.log(responsedata)
       this.setState((state,props)=>({
       gameId:responsedata.gameId,
       gameTitle:responsedata.gameTitle,
@@ -46,18 +45,15 @@ class HeroBanner extends React.Component{
       videoFileUrls:responsedata.VideoLinks,
       photoFileUrls:responsedata.PhotoLinks,
       thumbnailFileUrls:responsedata.ThumbnailLinks,
-      currentlyPlaying:responsedata.VideoLinks[0]
       }));
     })
   }
-  videoClicked(){
-    console.log('videowasclicked');
-  }
-  photoClicked(){
-    console.log('photowasclicked');
-  }
+
   render(){
-   return <div><Player currentVideo={this.state.currentlyPlaying} photoUrls ={this.state.photoFileUrls} videoUrls={this.state.videoFileUrls} thumbnailUrls={this.state.thumbnailFileUrls} videoWasClicked={this.videoClicked} photoWasClicked={this.photoClicked}/></div>
+   return <div style={{height:"500px",width:"900px"}}>
+   <Player photoUrls ={this.state.photoFileUrls}
+   videoUrls={this.state.videoFileUrls} thumbnailUrls={this.state.thumbnailFileUrls} />
+   </div>
   }
 }
 
