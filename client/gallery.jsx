@@ -9,21 +9,17 @@ class Gallery extends React.Component{
 constructor(props){
   super(props);
   this.state={
-    // ThumbnailNames:this.props.filenames,
-    ThumbnailUrls:[],
-    ThumbnailTags:[]
   }
-  console.log(this.state.ThumbnailUrls)
 }
 componentDidMount(){
 }
 render(){
-  var urls = this.props.thumburls.map((val)=><img height="77px" width="77px" src={val} />);
-  console.log(urls);
-  return (<OverflowScrolling><div className="gallery-bar overflow-scrolling" style={{overflow:'auto',width:'600px',height:'90px',whiteSpace:'nowrap'}}>{urls}{urls}{urls}</div></OverflowScrolling>);
+  var thumburls = this.props.thumbnailUrls.map((val)=><img height="77px" width="77px" src={val} onClick={this.props.videoClickFunction}/>);
+  var photourls = this.props.photoUrls.map((val)=><img height ="77px" width="77px" src = {val} onClick={this.props.photoClickFunction}/>);
+  console.log(thumburls,photourls);
+  return (<OverflowScrolling><div className="gallery-bar overflow-scrolling" style={{overflow:'auto',width:'600px',height:'90px',whiteSpace:'nowrap'}}>{thumburls}{photourls}{thumburls}{photourls}</div></OverflowScrolling>);
 // return (<div style={{width: "600px"}}>{urls}{urls}{urls}}</div>)
 //return (<span style={{width: "600px", height: "77px", overflow: 'scroll'}}>{urls}{urls}{urls}</span>);
 }
 }
-{/* <PerfectScrollbar minScrollbarLength = {600}></PerfectScrollbar></PerfectScrollbar> */}
 export default Gallery;
