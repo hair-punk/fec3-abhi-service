@@ -12,7 +12,7 @@ const mongoose = require('mongoose');
 
 var DB_SIZE = 100;
 const Schema = mongoose.Schema;
-const S3VideoCollectionSize = 156;
+const S3VideoCollectionSize = 135;
 const S3PhotoCollectionSize = 100;
 
 const gameItem = new Schema(

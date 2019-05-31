@@ -33,19 +33,19 @@ app.get('/gameObject', async function(req,res){
   object.PhotoLinks=[];
   object.ThumbnailLinks=[];
    var getVideoUrls = async function(obj){
-    videoparams.Key = obj['videoFileNames'][0].toString()+'.mp4';
+    videoparams.Key = obj['videoFileNames'][0].toString()+'.mkv';
     s3.getSignedUrl('getObject', videoparams, async(err,url)=>{
       if(err) console.log(err)
       else{
         obj.VideoLinks.push(url);
 
-        videoparams.Key = obj['videoFileNames'][1].toString()+'.mp4';
+        videoparams.Key = obj['videoFileNames'][1].toString()+'.mkv';
         s3.getSignedUrl('getObject', videoparams, async(err,url)=>{
           if(err) console.log(err)
           else{
             obj.VideoLinks.push(url);
 
-            videoparams.Key = obj['videoFileNames'][2].toString()+'.mp4';
+            videoparams.Key = obj['videoFileNames'][2].toString()+'.mkv';
             s3.getSignedUrl('getObject', videoparams, async(err,url)=>{
               if(err) console.log(err)
               else{
@@ -80,6 +80,7 @@ app.get('/gameObject', async function(req,res){
                                   console.log('coundnt get thumbnail',err)
                                 }else{
                                   obj.ThumbnailLinks.push(url);
+                                  console.log(obj)
                                   res.send(obj)
                                 }
                               })
