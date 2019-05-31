@@ -20,21 +20,15 @@ class Player extends React.Component {
     this.photoClicked = this.photoClicked.bind(this);
   }
   videoClicked(index){
-    // console.log(this)
-    console.log(index)
-    console.log('videowasclicked');
-    console.log(this.props.videoUrls)
-    console.log(this.state.currentlyPlaying, 'was playing')
+
     this.setState((state,props)=>(
       {
-
       currentlyPlaying:this.props.videoUrls[index],
       showVideoThumbnail:true,
       showPhoto:false,
       playing:true
 
     }))
-    console.log('now ', this.state.currentlyPlaying, ', is playing')
   }
   photoClicked(index){
     console.log('photowasclicked');
@@ -46,20 +40,7 @@ class Player extends React.Component {
     }))
   }
     componentDidMount(){
-
-
     }
-
-    // this.setState({
-    //   currentlyPlaying:this.props.videoUrls[0]
-    // })
-
-  // videoClick(index){
-  //   console.log('thumbnail clicked on')
-  // }
-  // photoClick(index){
-  //   console.log('photo clicked on')
-  // }
   render(){
     if(this.state.showPhoto){
       return(<div width="600px" height="336px"><img height="336" width="600px"src={this.state.currentPhoto} />

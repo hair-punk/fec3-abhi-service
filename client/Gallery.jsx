@@ -22,11 +22,7 @@ render(){
   return (<OverflowScrolling>
     <div className="gallery-bar overflow-scrolling" style={{overflow:'auto',width:'600px',height:'90px',whiteSpace:'nowrap'}}>{thumburls}{photourls}{thumburls}{photourls}</div>
     </OverflowScrolling>);
-// return (<div style={{width: "600px"}}>{urls}{urls}{urls}}</div>)
-//return (<span style={{width: "600px", height: "77px", overflow: 'scroll'}}>{urls}{urls}{urls}</span>);
 }
 }
-// Gallery.Proptypes={
 
-// }
 export default Gallery;
