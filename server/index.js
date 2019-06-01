@@ -25,7 +25,7 @@ app.use(express.static(__dirname + '/../dist'));
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
-
+console.log(window.location.pathname)
 app.get('/gameObject', async function(req,res){
   var object =  ((await query.query(req.query.id))[0])
   object = JSON.parse(JSON.stringify(object));
@@ -103,92 +103,6 @@ app.get('/gameObject', async function(req,res){
   getVideoUrls(object);
    //res.send(object);
 })
-
-  // var getVideoUrl = async function(object,x){
-  //  if(x!==-1){
-  //     videoparams.Key = object['videoFileNames'][x].toString()+'.jpg';
-  //     s3.getSignedUrl('getObject', videoparams, async(err,url)=>{
-  //       if(err){
-  //         console.log('couldnt get video', err);
-  //       }else{
-  //         object.VideoLinks.push(url);
-  //         x--;
-  //         await getVideoUrl(object,x)
-  //       }
-  //     })
-  //   }
-  // //  videoparams.Key = object['videoFileNames'][x].toString()+'.mp4'
-  //   //  s3.getSignedUrl('getObject', videoparams,(err,url)=>{
-  //   // if(err){
-  //   //   console.log('couldnt get video', err)
-  //   // }else{
-  //   //   object.VideoLinks.push(url);
-  //   // }
-  //   // }, )
-  // }
-
-
-
-    // var getPhotoUrl= function(x){
-    // photoparams.Key = object['photoFileNames'][x].toString()+'.jpg';
-    // s3.getSignedUrl('getObject', photoparams,(err,url)=>{
-    //   if(err){
-    //     console.log('couldnt get photo', err)
-    //   }else{
-    //     object.PhotoLinks.push(url);
-    //   }
-    // })
-    // }
-    // var getThumbnailUrl = function(x){
-    // thumbnailparams.Key = object['videoFileNames'][x].toString()+'.jpg';
-    // s3.getSignedUrl('getObject', thumbnailparams, (err, url)=>{
-    //   if(err){
-    //     console.log('coundnt get thumbnail',err)
-    //   }else{
-    //     object.ThumbnailLinks.push(url);
-    //   }
-    // })
-    // }
-  // for(var x = 0; x < object['photoFileNames'].length;x++){
-  // await  getPhotoUrl(x)
-  // }
-  // for(var x = 0;x < object['videoFileNames'].length;x++){
-  // await getThumbnailUrl(x);
-// }
-
-// function getVideoUrl(obj,x){
-// videoparams.Key = obj['videoFileNames'][x].toString()+'.mp4'
-// s3.getSignedUrl('getObject', videoparams,(err,url)=>{
-// if(err){
-//   console.log('couldnt get video', err)
-// }else{
-
-//   obj[VideoLinks].push(url);
-// }
-// })
-// }
-// function getPhotoUrl(obj,x){
-// photoparams.Key = obj['photoFileNames'][x].toString()+'.jpg';
-// s3.getSignedUrl('getObject', photoparams,(err,url)=>{
-//   if(err){
-//     console.log('couldnt get photo', err)
-//   }else{
-
-//     obj.PhotoLinks.push(url);
-//   }
-// })
-// }
-// function getThumbnailUrl(obj,x){
-// thumbnailparams.Key = obj['videoFileNames'][x].toString()+'.jpg';
-// s3.getSignedUrl('getObject', thumbnailparams, (err, url)=>{
-//   if(err){
-//     console.log('coundnt get thumbnail',err)
-//   }else{
-
-//     obj.ThumbnailLinks.push(url);
-//   }
-// })
-// }
 
 app.get('/test', async function (req, res) {
   res.send('woooo testing!!');

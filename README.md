@@ -4,7 +4,7 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
+  - https://github.com/hair-punk/fec3-abhi-service
   - https://github.com/teamName/repo
   - https://github.com/teamName/repo
   - https://github.com/teamName/repo
@@ -16,8 +16,22 @@
 1. [Development](#development)
 
 ## Usage
+Install the dependencies with
+npm install
+install mongodb in the package manager of your choice
 
-> Some usage instructions
+then seed the database by running
+npm run seed-db
+
+to start the express server run
+npm run express-server
+
+to start the front end run
+
+npm run front-end
+
+now the server is operational, and should be accessable from localhost:3007
+
 
 ## Requirements
 
@@ -32,8 +46,6 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 From within the root directory:
 
-```sh
-npm install -g webpack
 npm install
-```
+
 
