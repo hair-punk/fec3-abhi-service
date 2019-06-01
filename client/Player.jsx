@@ -44,10 +44,10 @@ class Player extends React.Component {
   render(){
     if(this.state.showPhoto){
       return(<div width="600px" height="336px"><img height="336" width="600px"src={this.state.currentPhoto} />
-      <Gallery currentlyPlaying={this.props.currentVideo}thumbnailUrls={this.props.thumbnailUrls} photoUrls={this.props.photoUrls} videoClickFunction={this.videoClicked} photoClickFunction = {this.photoClicked}/>
+      <Gallery width="600px" currentlyPlaying={this.props.currentVideo}thumbnailUrls={this.props.thumbnailUrls} photoUrls={this.props.photoUrls} videoClickFunction={this.videoClicked} photoClickFunction = {this.photoClicked}/>
       </div>)
     }else
-    return (<div>
+    return (<div width="600px">
      <ReactPlayer url={this.state.currentlyPlaying} width ="600px" height="336px" controls={true} volume={0.15} playing={this.state.playing} />
     <Gallery currentlyPlaying={this.props.currentVideo}thumbnailUrls={this.props.thumbnailUrls} photoUrls={this.props.photoUrls} videoClickFunction={this.videoClicked} photoClickFunction = {this.photoClicked}/>
     </div>)
