@@ -8,7 +8,7 @@ import Player from'./Player.jsx'
 import InfoBox from './InfoBox.jsx'
 
 const Main = styled.div`
-  height:426px;
+  height:450px;
   width:900px;
   display:flex;
   background-color:#93b3c8;

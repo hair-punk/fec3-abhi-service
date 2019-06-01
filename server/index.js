@@ -25,7 +25,7 @@ app.use(express.static(__dirname + '/../dist'));
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
-console.log(window.location.pathname)
+
 app.get('/gameObject', async function(req,res){
   var object =  ((await query.query(req.query.id))[0])
   object = JSON.parse(JSON.stringify(object));
