@@ -7,7 +7,13 @@ import styled from 'styled-components'
 import Player from'./Player.jsx'
 import InfoBox from './InfoBox.jsx'
 
-
+const Main = styled.div`
+  height:450px;
+  width:900px;
+  display:flex;
+  background-color:#93b3c8;
+  opacity:0.5
+`;
 class HeroBanner extends React.Component{
   constructor(props){
     super(props);
@@ -48,12 +54,13 @@ class HeroBanner extends React.Component{
       }));
     })
   }
-
   render(){
-   return <div style={{height:"426px",width:"900px",display:"flex", backgroundColor:"#93b3c8",opacity:"0.5"}}>
-   <Player /*style={{height:"500px",width:"600px"}}*/ photoUrls ={this.state.photoFileUrls}
-   videoUrls={this.state.videoFileUrls} thumbnailUrls={this.state.thumbnailFileUrls} /><InfoBox style={{height:'300px', width:'400'}} picture={this.state.thumbnailFileUrls[0]} description ={this.state.gameDescription}/>
-   </div>
+   return (
+   <Main>
+   <Player photoUrls ={this.state.photoFileUrls} videoUrls={this.state.videoFileUrls} thumbnailUrls={this.state.thumbnailFileUrls} />
+   <InfoBox  picture={this.state.thumbnailFileUrls[0]} description ={this.state.gameDescription}/>
+   </Main>
+   )
   }
 }
 

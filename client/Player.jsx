@@ -6,6 +6,10 @@ import styled from 'styled-components'
 import Gallery from './Gallery.jsx'
 import PropTypes from 'prop-types';
 //const request = require('request');
+const MediaContainer = styled.div`
+width:600px;
+height:450px;
+`;
 
 class Player extends React.Component {
   constructor(props){
@@ -43,14 +47,14 @@ class Player extends React.Component {
     }
   render(){
     if(this.state.showPhoto){
-      return(<div width="600px" height="336px"><img height="336" width="600px"src={this.state.currentPhoto} />
-      <Gallery width="600px" currentlyPlaying={this.props.currentVideo}thumbnailUrls={this.props.thumbnailUrls} photoUrls={this.props.photoUrls} videoClickFunction={this.videoClicked} photoClickFunction = {this.photoClicked}/>
-      </div>)
+      return(<MediaContainer><img src={this.state.currentPhoto} />
+      <Gallery currentlyPlaying={this.props.currentVideo}thumbnailUrls={this.props.thumbnailUrls} photoUrls={this.props.photoUrls} videoClickFunction={this.videoClicked} photoClickFunction = {this.photoClicked}/>
+      </MediaContainer>)
     }else
-    return (<div width="600px">
-     <ReactPlayer url={this.state.currentlyPlaying} width ="600px" height="336px" controls={true} volume={0.15} playing={this.state.playing} />
+    return (<MediaContainer>
+     <ReactPlayer width="600px" url={this.state.currentlyPlaying} controls={true} volume={0.15} playing={this.state.playing} />
     <Gallery currentlyPlaying={this.props.currentVideo}thumbnailUrls={this.props.thumbnailUrls} photoUrls={this.props.photoUrls} videoClickFunction={this.videoClicked} photoClickFunction = {this.photoClicked}/>
-    </div>)
+    </MediaContainer>)
     }
 }
 // Player.propTypes={
