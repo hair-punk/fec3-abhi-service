@@ -6,6 +6,11 @@ import styled from 'styled-components'
 import OverflowScrolling from 'react-overflow-scrolling'
 import PropTypes from 'prop-types';
 //videoClickFunction photoClickFunction
+const ThumbNails =styled.img`
+height:77px;
+width:77px;
+`;
+
 class Gallery extends React.Component{
 constructor(props){
   super(props);
@@ -15,12 +20,12 @@ constructor(props){
 componentDidMount(){
 }
 render(){
-  var thumburls = this.props.thumbnailUrls.map((val,index)=><img height="77px" width="77px" src={val} onClick={this.props.videoClickFunction.bind(null, index)}/>);
+  var thumburls = this.props.thumbnailUrls.map((val,index)=><ThumbNails src={val} onClick={this.props.videoClickFunction.bind(null, index)}/>);
 
-  var photourls = this.props.photoUrls.map((val, index)=><img height ="77px" width="77px" src = {val} onClick={this.props.photoClickFunction.bind(null, index)}/>);
+  var photourls = this.props.photoUrls.map((val, index)=><ThumbNails src = {val} onClick={this.props.photoClickFunction.bind(null, index)}/>);
 
   return (<OverflowScrolling >
-    <div className="gallery-bar overflow-scrolling" style={{overflow:'auto',width:'600px',height:'90px',whiteSpace:'nowrap', opacity:"1"}}>{thumburls}{photourls}{thumburls}{photourls}</div>
+    <div className="gallery-bar overflow-scrolling" style={{overflow:'auto',whiteSpace:'nowrap', opacity:"1"}}>{thumburls}{photourls}{thumburls}{photourls}</div>
     </OverflowScrolling>);
 }
 }
