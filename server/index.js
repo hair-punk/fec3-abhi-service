@@ -80,7 +80,6 @@ app.get('/gameObject', async function(req,res){
                                   console.log('coundnt get thumbnail',err)
                                 }else{
                                   obj.ThumbnailLinks.push(url);
-                                  console.log(obj)
                                   res.send(obj)
                                 }
                               })
