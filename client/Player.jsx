@@ -11,8 +11,9 @@ width:600px;
 height:450px;
 `;
 const Photo = styled.img`
-width:600px
-height:360px
+width:600px;
+height:360px;
+display:block;
 `;
 class Player extends React.Component {
   constructor(props){
