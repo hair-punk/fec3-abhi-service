@@ -7,8 +7,14 @@ import OverflowScrolling from 'react-overflow-scrolling'
 import PropTypes from 'prop-types';
 //videoClickFunction photoClickFunction
 const ThumbNails =styled.img`
-height:77px;
-width:77px;
+height:71px;
+width:85px;
+`;
+const Bar = styled.div`
+overflow:auto;
+white-space:nowrap;
+opacity:1;
+
 `;
 
 class Gallery extends React.Component{
@@ -25,7 +31,7 @@ render(){
   var photourls = this.props.photoUrls.map((val, index)=><ThumbNails src = {val} onClick={this.props.photoClickFunction.bind(null, index)}/>);
 
   return (<OverflowScrolling >
-    <div className="gallery-bar overflow-scrolling" style={{overflow:'auto',whiteSpace:'nowrap', opacity:"1"}}>{thumburls}{photourls}{thumburls}{photourls}</div>
+    <Bar className="gallery-bar overflow-scrolling" >{thumburls}{photourls}{thumburls}{photourls}</Bar>
     </OverflowScrolling>);
 }
 }

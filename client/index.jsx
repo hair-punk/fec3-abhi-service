@@ -11,8 +11,7 @@ const Main = styled.div`
   height:450px;
   width:900px;
   display:flex;
-  background-color:#93b3c8;
-  opacity:0.5
+  opacity:1
 `;
 class HeroBanner extends React.Component{
   constructor(props){
@@ -58,7 +57,7 @@ class HeroBanner extends React.Component{
    return (
    <Main>
    <Player photoUrls ={this.state.photoFileUrls} videoUrls={this.state.videoFileUrls} thumbnailUrls={this.state.thumbnailFileUrls} />
-   <InfoBox  picture={this.state.thumbnailFileUrls[0]} description ={this.state.gameDescription}/>
+   <InfoBox  picture={this.state.thumbnailFileUrls[0]} description ={this.state.gameDescription} releaseDate ={this.state.releaseDate} developer={this.state.gameDeveloper} publisher={this.state.gamePublisher}/>
    </Main>
    )
   }
