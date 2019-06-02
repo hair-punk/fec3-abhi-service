@@ -14,6 +14,17 @@ const Bar = styled.div`
 overflow:auto;
 white-space:nowrap;
 opacity:1;
+background-color:#182937
+&::-webkit-scrollbar{
+  width:15px
+  height:15px
+}
+&::-webkit-scrollbar-thumb:horizontal{
+background-color:#000000;
+border-radius:10px;
+width:10px;
+height:10px
+}
 `;
 
 class Gallery extends React.Component{

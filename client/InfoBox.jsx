@@ -10,7 +10,7 @@ display:flex;
 font-family:arial helvetica,sans-serif;
 flex-direction:column;
 align-items:center
-background-color: rgba(0,0,0,0)
+background-color: #182937
 `;
 const Description = styled.p`
 font-size:11px;
