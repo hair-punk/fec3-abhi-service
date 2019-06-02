@@ -57,7 +57,7 @@ class HeroBanner extends React.Component{
    return (
    <Main>
    <Player photoUrls ={this.state.photoFileUrls} videoUrls={this.state.videoFileUrls} thumbnailUrls={this.state.thumbnailFileUrls} />
-   <InfoBox  picture={this.state.thumbnailFileUrls[0]} description ={this.state.gameDescription} releaseDate ={this.state.releaseDate} developer={this.state.gameDeveloper} publisher={this.state.gamePublisher}/>
+   <InfoBox  metaTags={this.state.metaTags}picture={this.state.thumbnailFileUrls[0]} description ={this.state.gameDescription} releaseDate ={this.state.releaseDate} developer={this.state.gameDeveloper} publisher={this.state.gamePublisher}/>
    </Main>
    )
   }

@@ -14,7 +14,6 @@ const Bar = styled.div`
 overflow:auto;
 white-space:nowrap;
 opacity:1;
-
 `;
 
 class Gallery extends React.Component{
