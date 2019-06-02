@@ -64,7 +64,7 @@ class Player extends React.Component {
       </MediaContainer>)
     }else
     return (<MediaContainer>
-     <ReactPlayer width="600px" url={this.state.currentlyPlaying} controls={true} volume={0.15} playing={this.state.playing} muted={true} file={{forceVideo:true}}/>
+     <ReactPlayer style={{backgroundColor:'#182937'}}width="600px" url={this.state.currentlyPlaying} controls={true} volume={0.15} playing={this.state.playing} muted={true} file={{forceVideo:true}}/>
     <Gallery thumbnailUrls={this.props.thumbnailUrls} photoUrls={this.props.photoUrls} videoClickFunction={this.videoClicked} photoClickFunction = {this.photoClicked}/>
     </MediaContainer>)
     }
