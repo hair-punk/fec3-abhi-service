@@ -32,13 +32,16 @@ const Value = styled.span`
 color:#66C0F4;
 `;
 const Tag = styled.button`
-background-color:rgba( 103, 193, 245, .5 );
+background-color:rgba( 103, 193, 245, .2 );
 color:#66C0F4
-border-radius:5px;
+border-radius:3px;
+margin-right:2px;
 &:hover{
 background-color:#66C0F4
-color:#ffffff
+color:#ffffff;
+
 }
+border-style:hidden
 `;
 
 class InfoBox extends React.Component{

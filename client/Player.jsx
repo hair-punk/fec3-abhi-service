@@ -17,7 +17,6 @@ display:block;
 `;
 class Player extends React.Component {
   constructor(props){
-    console.log(props)
     super(props);
     this.state={
       currentlyPlaying:'',
@@ -41,7 +40,6 @@ class Player extends React.Component {
     }))
   }
   photoClicked(index){
-    console.log('photowasclicked');
     this.setState((state,props)=>(
       {
       showPhoto:true,
@@ -50,7 +48,6 @@ class Player extends React.Component {
     }))
   }
     componentDidMount(){
-      console.log('player mounted')
       this.setState((state,props)=>(
         {
         currentlyPlaying:this.props.videoUrls[0],
