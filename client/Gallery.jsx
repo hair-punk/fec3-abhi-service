@@ -20,10 +20,13 @@ background-color:#182937
   height:15px
 }
 &::-webkit-scrollbar-thumb:horizontal{
-background-color:#000000;
-border-radius:10px;
+  background-color:rgba( 103, 193, 245, .2 );
+border-radius:6px;
 width:10px;
 height:10px
+&:hover{
+  background-color:#66C0F4
+}
 }
 `;
 
