@@ -1,6 +1,7 @@
 # Exhaust Computer Entertainment Sales Platform
 
-> This repository contains the video player component of the exhaust sales platform.
+This repository contains the Exhaust sales platform video player module.  The Exhaust platform is designed with the technical considerations of computer game sales, and this video player leverages AWS and the [react-player](https://github.com/CookPete/react-player) project.
+
 ![cropped video player screenshot](https://user-images.githubusercontent.com/1322821/60388296-2504f600-9a64-11e9-8d98-97cea548811b.png)
 
 ## Related Projects
@@ -10,20 +11,21 @@
 
 ## Usage
 Install the dependencies with
-npm install
-install mongodb in the package manager of your choice
+````npm install```
 
-then seed the database by running
-npm run seed-db
+Then, install mongodb in the package manager of your choice
 
-to start the express server run
-npm run express-server
+Then seed the database by running
+```npm run seed-db```
 
-to start the front end run
+To start the express server run
+```npm run express-server```
 
-npm run front-end
+To start the front end run
 
-now the server is operational, and should be accessable from localhost:3008
+```npm run front-end```
+
+Now the server is operational and should be accessable from localhost:3008
 
 The videoplayer will not work without an s3 bucket integration.  
 
