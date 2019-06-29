@@ -9,12 +9,9 @@
 
   var userMetaTags=['action', 'adventure', 'casual', 'strategy', 'rpg', 'massively multiplayer', 'racing', 'puzzle', 'VR', 'Horror', 'Co-op', 'Retro', 'FPS', 'first person', 'survival', 'arcade', 'sandbox', 'space', 'zombies', 'relaxing', 'rogue-like', 'sports', 'RTS', 'fighting', 'Tower Defense', 'Cyberpunk', 'arena shooter', 'steampunk', 'rhythm', 'pirates', 'ninja', 'battle royale', 'cinematic', 'cats'];
 const mongoose = require('mongoose');
-
-var DB_SIZE = 100;
 const Schema = mongoose.Schema;
 const S3VideoCollectionSize = 135;
 const S3PhotoCollectionSize = 100;
-
 const gameItem = new Schema(
   {
     gameId:Number,
@@ -29,22 +26,22 @@ const gameItem = new Schema(
 
   }
 );
+
 (async function seed(){
   await openConnection().then(await storeGames)
 })()
 
 function openConnection(){
   try{
-return mongoose.connect("mongodb://localhost/herodb");
+    return mongoose.connect("mongodb://localhost/herodb");
   }catch(err){
     console.log('mongoose could not connect')
   }
-
 }
 
 var Games = mongoose.model('Game', gameItem);
 
- function createEntry(num){
+function createEntry(num){
   var entry = {};
   entry.id = num;
   entry.title = gameNameAdjectives[(Math.floor(Math.random()*gameNameAdjectives.length))]+ gameNameNouns[(Math.floor(Math.random()*gameNameNouns.length))];
@@ -66,32 +63,29 @@ var Games = mongoose.model('Game', gameItem);
   }
   return entry;
 }
-
 async function addGame(id){
-    return new Promise(async function(resolve){
-             var newData = await createEntry(id);
-        var newGame = new Games({
-          gameId:newData.id,
-          gameTitle:newData.title,
-          gameDescription:newData.description,
-          gameDeveloper:newData.devName,
-          gamePublisher:newData.pubName,
-          releaseDate: newData.releaseDate,
-          metaTags:newData.metaTags,
-          videoFileNames:newData.videoFileNames,
-          photoFileNames:newData.photoFileNames
-        });
-        await newGame.save()
-        resolve();
+  return new Promise(async function(resolve){
+    var newData = await createEntry(id);
+    var newGame = new Games({
+      gameId:newData.id,
+      gameTitle:newData.title,
+      gameDescription:newData.description,
+      gameDeveloper:newData.devName,
+      gamePublisher:newData.pubName,
+      releaseDate: newData.releaseDate,
+      metaTags:newData.metaTags,
+      videoFileNames:newData.videoFileNames,
+      photoFileNames:newData.photoFileNames
     });
-
+    await newGame.save();
+    resolve();
+    });
 };
 
 async function storeGames(){
-
   for(let i = 1; i <= 100;i++){
     await addGame(i);
-    }
-    mongoose.disconnect();
+  }
+  mongoose.disconnect();
 }
 
