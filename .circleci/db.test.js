@@ -4,7 +4,7 @@ const dbQuery = require('../database/index.js');
 
 describe('populate', ()=>{
   beforeAll(async function(){
-  connection = await mongoose.connect("mongodb://localhost/herodb");
+    connection = await mongoose.connect("mongodb://localhost/herodb");
   });
   afterAll(async function(){
     await mongoose.disconnect();
@@ -17,18 +17,14 @@ describe('populate', ()=>{
     var firstItem = await dbQuery.query(1);
     firstItem = firstItem[0]
     console.log(firstItem);
-   expect(typeof firstItem).toEqual('object');
-   expect(firstItem).toHaveProperty('gameId');
-   expect(firstItem).toHaveProperty('gameTitle');
-  //  expect(firstItem).toHaveProperty('metaTags');
-  //  expect(firstItem).toHaveProperty(['videoFileNames']);
-  // // expect(firstItem).toHaveProperty('photoFileNames');
-   expect(firstItem).toHaveProperty('gameId');
-   expect(firstItem).toHaveProperty('gameTitle');
-   expect(firstItem).toHaveProperty('gameDescription');
-   expect(firstItem).toHaveProperty('gameDeveloper');
-   expect(firstItem).toHaveProperty('gamePublisher');
-   expect(firstItem).toHaveProperty('releaseDate');
-
+    expect(typeof firstItem).toEqual('object');
+    expect(firstItem).toHaveProperty('gameId');
+    expect(firstItem).toHaveProperty('gameTitle');
+    expect(firstItem).toHaveProperty('gameId');
+    expect(firstItem).toHaveProperty('gameTitle');
+    expect(firstItem).toHaveProperty('gameDescription');
+    expect(firstItem).toHaveProperty('gameDeveloper');
+    expect(firstItem).toHaveProperty('gamePublisher');
+    expect(firstItem).toHaveProperty('releaseDate');
   })
 })

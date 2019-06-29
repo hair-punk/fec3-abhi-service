@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReactPlayer from 'react-player'
-import PerfectScrollbar from 'react-perfect-scrollbar'
 import styled from 'styled-components'
-// import Gallery from './gallery.jsx'
 import Player from'./Player.jsx'
 import InfoBox from './InfoBox.jsx'
 
@@ -55,10 +52,10 @@ class HeroBanner extends React.Component{
   }
   render(){
    return (
-   <Main>
-   <Player photoUrls ={this.state.photoFileUrls} videoUrls={this.state.videoFileUrls} thumbnailUrls={this.state.thumbnailFileUrls} />
-   <InfoBox  metaTags={this.state.metaTags}picture={this.state.thumbnailFileUrls[0]} description ={this.state.gameDescription} releaseDate ={this.state.releaseDate} developer={this.state.gameDeveloper} publisher={this.state.gamePublisher}/>
-   </Main>
+    <Main>
+    <Player photoUrls ={this.state.photoFileUrls} videoUrls={this.state.videoFileUrls} thumbnailUrls={this.state.thumbnailFileUrls} />
+     <InfoBox  metaTags={this.state.metaTags}picture={this.state.thumbnailFileUrls[0]} description ={this.state.gameDescription} releaseDate ={this.state.releaseDate} developer={this.state.gameDeveloper} publisher={this.state.gamePublisher}/>
+    </Main>
    )
   }
 }

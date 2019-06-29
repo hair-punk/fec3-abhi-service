@@ -38,13 +38,11 @@ app.get('/gameObject', async function(req,res){
       if(err) console.log(err)
       else{
         obj.VideoLinks.push(url);
-
         videoparams.Key = obj['videoFileNames'][1].toString()+'.mkv';
         s3.getSignedUrl('getObject', videoparams, async(err,url)=>{
           if(err) console.log(err)
           else{
             obj.VideoLinks.push(url);
-
             videoparams.Key = obj['videoFileNames'][2].toString()+'.mkv';
             s3.getSignedUrl('getObject', videoparams, async(err,url)=>{
               if(err) console.log(err)
@@ -84,7 +82,7 @@ app.get('/gameObject', async function(req,res){
                                 }
                               })
                               }
-                               })
+                            })
                           }
                         })
                       }
@@ -100,7 +98,6 @@ app.get('/gameObject', async function(req,res){
     })
   }
   getVideoUrls(object);
-   //res.send(object);
 })
 
 app.get('/test', async function (req, res) {
