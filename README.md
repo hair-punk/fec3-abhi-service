@@ -1,19 +1,11 @@
-# Project Name
+# Exhaust Computer Entertainment Sales Platform
 
-> Project description
+> This repository contains the video player component of the exhaust sales platform.
 
 ## Related Projects
-
-  - https://github.com/hair-punk/fec3-abhi-service
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+  - https://github.com/hair-punk/fec3-tvo-service
+  - https://github.com/hair-punk/fec3-amkw-service
+  - https://github.com/hair-punk/fec3-azu-service
 
 ## Usage
 Install the dependencies with
@@ -32,20 +24,5 @@ npm run front-end
 
 now the server is operational, and should be accessable from localhost:3007
 
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
-
-## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
-npm install
 
 
