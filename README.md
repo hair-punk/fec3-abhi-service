@@ -1,6 +1,7 @@
 # Exhaust Computer Entertainment Sales Platform
 
 > This repository contains the video player component of the exhaust sales platform.
+![cropped video player screenshot](https://user-images.githubusercontent.com/1322821/60388296-2504f600-9a64-11e9-8d98-97cea548811b.png)
 
 ## Related Projects
   - https://github.com/hair-punk/fec3-tvo-service
