@@ -11,14 +11,17 @@ This repository contains the Exhaust sales platform video player module.  The Ex
 
 ## Usage
 Install the dependencies with
-````npm install```
+
+```npm install```
 
 Then, install mongodb in the package manager of your choice
 
 Then seed the database by running
+
 ```npm run seed-db```
 
 To start the express server run
+
 ```npm run express-server```
 
 To start the front end run
