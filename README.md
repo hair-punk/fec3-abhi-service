@@ -23,7 +23,7 @@ to start the front end run
 
 npm run front-end
 
-now the server is operational, and should be accessable from localhost:3007
+now the server is operational, and should be accessable from localhost:3008
 
-
+The videoplayer will not work without an s3 bucket integration.  
 
