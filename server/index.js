@@ -2,8 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const query = require('../database/index.js')
 const AWS = require('aws-sdk');
+const Recaptcha = require('express-recaptcha').RecaptchaV2;
 let port = 3008;
 const keys = require('../.aws/credentials.js')
+const router = express.Router;
+var path = require('path');
+const fs = require('fs')
+const engines = require('consolidate');
 let app = express();
 var s3 = new AWS.S3({apiVersion: '2006-03-01',
 accessKeyId:keys.AWS_ACCESS_KEY,
@@ -21,10 +26,38 @@ var thumbnailparams = {
   Bucket:keys.THUMBNAIL_BUCKET,
   Key:''
 }
-app.use(express.static(__dirname + '/../dist'));
+
+var recaptcha = new Recaptcha('6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI','6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe')
+
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
+app.set("views",['./server/views', "./dist"])
+app.use(express.static('dist'))
+
+app.engine('pug', engines.pug);
+app.engine('html', require('ejs').renderFile);
+
+app.get('/captcha',recaptcha.middleware.render, function(req,res){
+res.render('index.pug', {post: '/', captcha:res.recaptcha, path:req.path})
+})
+
+app.get('/darkcaptcha', recaptcha.middleware.renderWith({'theme':'dark'}), (req, res) => {
+  res.render('index.pug', {post:'/', captcha: res.recaptcha, path:req.path })
+})
+
+app.post('/', recaptcha.middleware.verify, (req, res) => {
+  console.log(req.path);
+  res.render('index.html', {post:'/',error:req.recaptcha.error, path:'/dist'})
+  // res.render(path.resolve('dist/index'))
+})
+  // app.use(express.static(__dirname + '/../dist'));
+// app.post('/', recaptcha.middleware.verify, function(req,res){
+//   // recaptcha.verify(req, function(error, data){
+//   //   res.sendFile('./index.html');
+//   // })
+//   res.sendFile(path.resolve('dist/index.html'))
+// })
 
 app.get('/gameObject', async function(req,res){
   var object =  ((await query.query(req.query.id))[0])
