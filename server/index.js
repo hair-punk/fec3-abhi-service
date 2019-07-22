@@ -6,6 +6,7 @@ const Recaptcha = require('express-recaptcha').RecaptchaV2;
 let port = 3008;
 const keys = require('../.aws/credentials.js')
 const google = require('../.captcha/config.js')
+const cors = require('cors');
 
 var path = require('path');
 const fs = require('fs')
@@ -34,6 +35,7 @@ var thumbnailparams = {
 
 var recaptcha = new Recaptcha(googleSiteKey,googleSecretKey);
 const router = express.Router();
+
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
@@ -59,7 +61,7 @@ app.engine('html', require('ejs').renderFile);
 app.use('/', router)
 app.use(express.static('./dist', {index:false}))
 
-
+router.use(cors());
 router.get('/', recaptcha.middleware.render ,(req,res,next)=>{
   console.log('get request received to /');
   res.render('index.pug', {post: '/', captcha:res.recaptcha, path:req.path},
@@ -100,7 +102,9 @@ router.post('/captcha', recaptcha.middleware.verify,(req,res)=>{
 
 
 app.get('/gameObject', async function(req,res){
+  console.log('gameObject queried')
   var object =  ((await query.query(req.query.id))[0])
+  console.log(object)
   object = JSON.parse(JSON.stringify(object));
   object.VideoLinks=[];
   object.PhotoLinks=[];
@@ -151,6 +155,7 @@ app.get('/gameObject', async function(req,res){
                                   console.log('coundnt get thumbnail',err)
                                 }else{
                                   obj.ThumbnailLinks.push(url);
+				  console.log(obj);
                                   res.send(obj)
                                 }
                               })
