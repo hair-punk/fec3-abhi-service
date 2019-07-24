@@ -26,6 +26,7 @@ class Player extends React.Component {
     this.componentDidMount = this.componentDidMount.bind(this)
   }
   videoClicked(index){
+    console.log('videoclicked ran')
     this.setState((state,props)=>(
       {
         currentlyPlaying:this.props.videoUrls[index],
@@ -44,9 +45,10 @@ class Player extends React.Component {
     ))
   }
   componentDidMount(){
+    this.videoClicked(0);
     this.setState((state,props)=>(
       {
-        currentlyPlaying:this.props.videoUrls[0],
+        currentlyPlaying:this.props.videoUrls[1],
         showPhoto:false,
         playing:true
       }
@@ -59,7 +61,7 @@ class Player extends React.Component {
         </MediaContainer>)
     }else
     return (<MediaContainer>
-      <ReactPlayer style={{backgroundColor:'#182937'}}width="600px" url={this.state.currentlyPlaying} controls={true} volume={0.15} playing={this.state.playing} muted={true} file={{forceVideo:true}}/>
+      <ReactPlayer style={{backgroundColor:'#182937'}} controls={true} width="600px" url={this.state.currentlyPlaying} controls={true} volume={0.15} playing={this.state.playing} muted={true} file={{forceVideo:true}}/>
         <Gallery thumbnailUrls={this.props.thumbnailUrls} photoUrls={this.props.photoUrls} videoClickFunction={this.videoClicked} photoClickFunction = {this.photoClicked}/>
         </MediaContainer>)
   }
