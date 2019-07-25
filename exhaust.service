@@ -1,0 +1,14 @@
+[Unit]
+Description=Exhaust Video Player server
+
+[Service]
+ExecStart=/usr/bin/node /home/ubuntu/Exhaust-Video-Player/server/index.js
+User=ubuntu
+Group=root
+Restart=always
+Environment=NODE_ENV=production
+Environment=PATH=/bin:/usr/bin:/usr/local/bin
+WorkingDirectory=/home/ubuntu/Exhaust-Video-Player/
+
+[Install]
+WantedBy=multi-user.target
