@@ -78,7 +78,7 @@ router.post('/', (req,res,next)=>{
   console.log('post request recieved, delivering video player', req.body);
   //res.render('index.html', {post: '/', error:res.recaptcha, path: req.path ,data:'index.html'} );
 });
-router.post('/captcha', recaptcha.middleware.verify,(req,res)=>{
+router.post('/captchasolved', recaptcha.middleware.verify,(req,res)=>{
   console.log(req.bod, 'post request recieved at /captcha');
   if(req.body !==''){
     console.log('captcha passed')

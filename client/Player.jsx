@@ -23,7 +23,9 @@ class Player extends React.Component {
     };
     this.videoClicked = this.videoClicked.bind(this);
     this.photoClicked = this.photoClicked.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this)
+  //  this.componentDidMount = this.componentDidMount.bind(this)
+    this.componentDidUpdate = this.componentDidUpdate.bind(this)
+ // this.videoClicked(0);
   }
   videoClicked(index){
     console.log('videoclicked ran')
@@ -44,26 +46,25 @@ class Player extends React.Component {
       }
     ))
   }
-  componentDidMount(){
-    this.videoClicked(0);
-    this.setState((state,props)=>(
-      {
-        currentlyPlaying:this.props.videoUrls[1],
-        showPhoto:false,
-        playing:true
-      }
-    ))
+  componentDidUpdate(){
+    console.log('Player componentdidupdate just got called')
+    if(this.state.currentlyPlaying ===''){
+      this.videoClicked(0)
+    }
+    console.log('player component did update just finished')
   }
   render(){
+
     if(this.state.showPhoto){
       return(<MediaContainer><Photo src={this.state.currentPhoto} />
         <Gallery thumbnailUrls={this.props.thumbnailUrls} photoUrls={this.props.photoUrls} videoClickFunction={this.videoClicked} photoClickFunction = {this.photoClicked}/>
         </MediaContainer>)
-    }else
+    }else{
     return (<MediaContainer>
-      <ReactPlayer style={{backgroundColor:'#182937'}} controls={true} width="600px" url={this.state.currentlyPlaying} controls={true} volume={0.15} playing={this.state.playing} muted={true} file={{forceVideo:true}}/>
+      <ReactPlayer style={{backgroundColor:'#182937'}} controls={true} width="600px" url={this.state.currentlyPlaying} controls={true} volume={0.15} playing={true} muted={true} file={{forceVideo:true}}/>
         <Gallery thumbnailUrls={this.props.thumbnailUrls} photoUrls={this.props.photoUrls} videoClickFunction={this.videoClicked} photoClickFunction = {this.photoClicked}/>
         </MediaContainer>)
+    }
   }
 }
 export default Player

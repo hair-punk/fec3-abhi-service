@@ -58,7 +58,7 @@ render(){
       <br></br>
       <Line><Label> Popular user-defined tags for this product:</Label></Line>
       <span>{this.props.metaTags.map((tag, index)=>(
-        <Tag key={index}>{tag}></Tag>
+        <Tag key={index}>{tag}</Tag>
       ))}</span>
   </InfoElements>)
 }

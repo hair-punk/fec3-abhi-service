@@ -30,6 +30,7 @@ class HeroBanner extends React.Component{
 
   }
   componentDidMount(){
+    console.log('main component mounted')
     fetch('http://localhost:3008/gameObject'+'?id='+Math.floor(Math.random()*87)).then(response=>{
       return response.text()
     }).then(data=>{
@@ -47,8 +48,13 @@ class HeroBanner extends React.Component{
       videoFileUrls:responsedata.VideoLinks,
       photoFileUrls:responsedata.PhotoLinks,
       thumbnailFileUrls:responsedata.ThumbnailLinks,
-      }));
+      }), ()=>{
+      this.forceUpdate();
+      });
+      console.log('ajax request just finished');
+      this.forceUpdate();
     })
+
   }
   render(){
    return (
