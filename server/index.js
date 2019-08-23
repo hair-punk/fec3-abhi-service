@@ -43,19 +43,6 @@ app.set("views",[__dirname+"/../dist"])
 app.engine('pug', engines.pug);
 app.engine('html', require('ejs').renderFile);
 
-// app.get('/',recaptcha.middleware.render, function(req,res){
-//   console.log('get request recieved')
-// res.render('index.pug', {post: '/', captcha:res.recaptcha, path:req.path}/*, (err,html)=>{
-//   if(err){
-//     console.log('captcha was wrong, or something');
-//     res.sendStatus(403)
-//   }else{
-//     console.log('made it to the response')
-//     res.render('index.html', {post:'/',error:req.recaptcha.error, path:'/dist'});
-//   }
-
-// }*/)
-// })
 app.use('/', router)
 app.use(express.static('./dist', {index:false}))
 
@@ -63,20 +50,11 @@ app.use(express.static('./dist', {index:false}))
 router.get('/', recaptcha.middleware.render ,(req,res,next)=>{
   console.log('get request received to /');
   res.render('index.pug', {post: '/', captcha:res.recaptcha, path:req.path},
-  // (err, html)=>{
-  //   if(err){
-  //     console.log('captcha was wrong, or something', err)
-  //     res.sendStatus(403);
-  //   }else{
-  //     console.log('made it to teh response');
-  //     next()
-  //   }
-  // }
+
   );
 });
 router.post('/', (req,res,next)=>{
   console.log('post request recieved, delivering video player', req.body);
-  //res.render('index.html', {post: '/', error:res.recaptcha, path: req.path ,data:'index.html'} );
 });
 router.post('/captchasolved', recaptcha.middleware.verify,(req,res)=>{
   console.log(req.bod, 'post request recieved at /captcha');
@@ -87,17 +65,6 @@ router.post('/captchasolved', recaptcha.middleware.verify,(req,res)=>{
     console.log('failed')
   }
 });
-
-
-// app.get('/darkcaptcha', recaptcha.middleware.renderWith({'theme':'dark'}), (req, res) => {
-//   res.render('index.pug', {post:'/', captcha: res.recaptcha, path:req.path })
-// })
-
-// app.post('/', recaptcha.middleware.verify, (req, res) => {
-//   console.log(req.path);
-//   res.render('index.html', {post:'/',error:req.recaptcha.error, path:'/dist'})
-// })
-
 
 app.get('/gameObject', async function(req,res){
   var object =  ((await query.query(req.query.id))[0])
