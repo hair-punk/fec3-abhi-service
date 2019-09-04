@@ -43,7 +43,7 @@
     "jest": "^24.8.0",
     "jest-cli": "^24.8.0",
     "webpack": "^4.36.1",
-    "webpack-cli": "^3.3.6",
+    "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.7.2"
   }
 }

@@ -4,7 +4,7 @@ html
     body
         h1 Express-Recaptcha example
         if (captcha)
-            form(method="POST", action='/captcha')
+            form(method="POST", action='/captchasolved')
                 p !{captcha}
                 button(type='submit') Verify captcha
                 br

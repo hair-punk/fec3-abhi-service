@@ -39,32 +39,40 @@ app.use(bodyParser.json());
 
 app.set("views",[__dirname+"/../dist"])
 
+//Uncomment the following code to enable the site without captcha
 
-app.engine('pug', engines.pug);
-app.engine('html', require('ejs').renderFile);
-
-app.use('/', router)
-app.use(express.static('./dist', {index:false}))
+app.use(express.static(__dirname + '/../dist'));
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 
 
-router.get('/', recaptcha.middleware.render ,(req,res,next)=>{
-  console.log('get request received to /');
-  res.render('index.pug', {post: '/', captcha:res.recaptcha, path:req.path},
+//Uncomment the following code and comment the previous code to enable the captcha
 
-  );
-});
-router.post('/', (req,res,next)=>{
-  console.log('post request recieved, delivering video player', req.body);
-});
-router.post('/captchasolved', recaptcha.middleware.verify,(req,res)=>{
-  console.log(req.bod, 'post request recieved at /captcha');
-  if(req.body !==''){
-    console.log('captcha passed')
-    res.render('index.html', {post: '/', error:res.recaptcha, path: req.path ,data:'index.html'} );
-  }else{
-    console.log('failed')
-  }
-});
+// app.engine('pug', engines.pug);
+// app.engine('html', require('ejs').renderFile);
+
+// app.use('/', router)
+// app.use(express.static('./dist', {index:false}))
+
+
+// router.get('/', recaptcha.middleware.render ,(req,res,next)=>{
+//   console.log('get request received to /');
+//   res.render('index.pug', {post: '/', captcha:res.recaptcha, path:req.path},
+
+//   );
+// });
+// router.post('/', (req,res,next)=>{
+//   console.log('post request recieved, delivering video player', req.body);
+// });
+// router.post('/captchasolved', recaptcha.middleware.verify,(req,res)=>{
+//   console.log(req.bod, 'post request recieved at /captcha');
+//   if(req.body !==''){
+//     console.log('captcha passed')
+//     res.render('index.html', {post: '/', error:res.recaptcha, path: req.path ,data:'index.html'} );
+//   }else{
+//     console.log('failed')
+//   }
+// });
 
 app.get('/gameObject', async function(req,res){
   var object =  ((await query.query(req.query.id))[0])
