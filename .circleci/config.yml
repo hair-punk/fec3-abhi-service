@@ -14,9 +14,9 @@
        - run: npm install
        - run: npm run express-server
        - newman/newman-run:
-           collection: .circleci/postman_test.json
+           collection: .circleci/postman/postman_test.json
            timeout: '1000'
-   jest:
+   jest/mocha:
      docker:
        - image: circleci/node:10.15.3
        - image: circleci/mongo:4.0.9
@@ -40,10 +40,11 @@
            background: true
        - run: sleep 2s
        - run: ps aux
-       - run: npm test
+       - run: npm run jest
+       - run: npm run mocha
  workflows:
    version: 2.1
    postman_and_main:
      jobs:
       - postman
-      - jest
+      - jest/mocha

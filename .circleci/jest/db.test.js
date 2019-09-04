@@ -1,6 +1,6 @@
 const mongoose =require('mongoose');
 const request = require('request');
-const dbQuery = require('../database/index.js');
+const dbQuery = require('../../database/index.js');
 
 describe('populate', ()=>{
   beforeAll(async function(){
@@ -15,8 +15,7 @@ describe('populate', ()=>{
   })
   it('should test the database and return the first item and test it for its properties', async function(){
     var firstItem = await dbQuery.query(1);
-    firstItem = firstItem[0]
-    console.log(firstItem);
+    firstItem = firstItem[0];
     expect(typeof firstItem).toEqual('object');
     expect(firstItem).toHaveProperty('gameId');
     expect(firstItem).toHaveProperty('gameTitle');
