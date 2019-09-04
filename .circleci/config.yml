@@ -1,8 +1,8 @@
  version: 2.1
  orbs:
- #  newman: postman/newman@0.0.2
+  newman: postman/newman@0.0.2
  jobs:
- #  postman:
+   postman:
   #   executor: newman/postman-newman-docker
    #  docker:
     #   - image: circleci/node:lts
@@ -45,5 +45,5 @@
    version: 2.1
    postman_and_main:
      jobs:
-  #    - postman
+      - postman
       - jest
