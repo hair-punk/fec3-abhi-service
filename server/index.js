@@ -11,8 +11,8 @@ var path = require('path');
 const fs = require('fs')
 const engines = require('consolidate');
 let app = express();
-const googleSiteKey = google.GOOGLE_SITE_KEY;
-const googleSecretKey = google.GOOGLE_SECRET_KEY;
+// const googleSiteKey = google.GOOGLE_SITE_KEY;
+// const googleSecretKey = google.GOOGLE_SECRET_KEY;
 
 var s3 = new AWS.S3({apiVersion: '2006-03-01',
 accessKeyId:process.env.AWS_ACCESS_KEY,
