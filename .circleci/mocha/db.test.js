@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const request = require('request');
-const dbQuery = require('../../database/index.js');
 var chai = require('chai');
 var assert = chai.assert;
 describe('Test Connecting and Disconnecting', async function(){

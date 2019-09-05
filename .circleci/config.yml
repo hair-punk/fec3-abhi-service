@@ -15,7 +15,6 @@
        - run:
            command: npm run express-server
            background: true
-
        - newman/newman-run:
            collection: .circleci/postman/postman_test.json
            timeout: '1000'
