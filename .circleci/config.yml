@@ -6,9 +6,9 @@
      executor: newman/postman-newman-docker
      docker:
        - image: circleci/node:lts
-       - image: circleci/mongo:latest
-     environment:
-       - MONGO_URL: "mongodb://localhost:27017/herodb"
+#       - image: circleci/mongo:latest
+#     environment:
+#       - MONGO_URL: "mongodb://localhost:27017/herodb"
      steps:
        - checkout
        - run: npm install
