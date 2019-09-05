@@ -37,7 +37,7 @@ describe('Test Database Queries', async function() {
   after(async function(){
     await mongoose.disconnect();
   })
-  it('should query the first object, and test the properties', async function(){
+  it('Should query the first object, and test the properties', async function(){
 
     var item =  await Games.find({gameId:1}).exec().then((game)=>{
       return game;
@@ -51,7 +51,7 @@ describe('Test Database Queries', async function() {
     assert.property(item, 'gamePublisher');
     assert.property(item, 'releaseDate');
   })
-  it('should query some random items from the database and test them', async function(){
+  it('Should query some random items from the database.  They must be valid.', async function(){
     for(var x = 0;x < 20;x++){
       var item =  await Games.find({gameId:Math.ceil(Math.random()*100)}).exec().then((game)=>{
         return game;
