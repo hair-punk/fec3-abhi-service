@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 var chai = require('chai');
 var assert = chai.assert;
+var connection;
 describe('Test Connecting and Disconnecting', async function(){
    it('should connect properly', async function(){
     connection = await mongoose.connect("mongodb://localhost/herodb",{useNewUrlParser:true});
@@ -52,7 +53,7 @@ describe('Test Database Queries', async function() {
   })
   it('should query some random items from the database and test them', async function(){
     for(var x = 0;x < 20;x++){
-      var item =  await Games.find({gameId:Math.floor(Math.random()*100)}).exec().then((game)=>{
+      var item =  await Games.find({gameId:Math.ceil(Math.random()*100)}).exec().then((game)=>{
         return game;
       });
       item = item[0];

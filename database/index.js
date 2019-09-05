@@ -17,7 +17,6 @@ const gameItem = new Schema(
 var Games = connection.model('Game', gameItem);
 let query = (idNumber)=>{
   return Games.find({gameId:idNumber}).exec().then((game)=>{
-
      return game;
   })
 }

@@ -31,7 +31,7 @@ class HeroBanner extends React.Component{
   }
   componentDidMount(){
     console.log('main component mounted')
-    fetch('http://localhost:3008/gameObject'+'?id='+Math.floor(Math.random()*87)).then(response=>{
+    fetch('http://localhost:3008/gameObject'+'?id='+Math.floor(Math.random()*100)).then(response=>{
       return response.text()
     }).then(data=>{
       var responsedata = JSON.parse(data);

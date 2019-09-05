@@ -11,7 +11,7 @@
     "seed-db": "node ./DBseed/itemGen.js",
     "front-end": "webpack -d --watch",
     "express-server": "NODE_ENV=development nodemon server/index.js",
-    "mocha": "mocha .circleci/mocha/*.js",
+    "mocha": "mocha --recursive .circleci/mocha/",
     "jest": "jest .circleci/jest/*.js"
   },
   "dependencies": {
