@@ -15,6 +15,7 @@
        - run:
            command: npm run express-server
            background: true
+           command: echo 'export PATH=/usr/local/bin:$PATH newman -v'
        - newman/newman-run:
            collection: .circleci/postman/postman_test.json
            timeout: '1000'
