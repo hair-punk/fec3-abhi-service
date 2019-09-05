@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const request = require('request');
-const dbQuery = require('../../database/index.js');
 var chai = require('chai');
 var assert = chai.assert;
 describe('Test Connecting and Disconnecting', async function(){
@@ -39,12 +37,11 @@ describe('Test Database Queries', async function() {
     await mongoose.disconnect();
   })
   it('should query the first object, and test the properties', async function(){
-    console.log('here')
+
     var item =  await Games.find({gameId:1}).exec().then((game)=>{
       return game;
     });
     item = item[0];
-    console.log(item);
     assert.equal(typeof item, 'object');
     assert.property(item,'gameId');
     assert.property(item,'gameTitle');
@@ -59,7 +56,6 @@ describe('Test Database Queries', async function() {
         return game;
       });
       item = item[0];
-      console.log(item);
       assert.equal(typeof item, 'object');
       assert.property(item,'gameId');
       assert.property(item,'gameTitle');
