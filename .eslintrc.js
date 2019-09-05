@@ -6,5 +6,5 @@
  */
 
 module.exports = {
-  extends: './node_modules/eslint-config-hackreactor/index.js'
+  extends: '/home/abhi/.nvm/versions/node/v10.15.3/lib/node_modules/eslint-config-hackreactor/index.js'
 };
