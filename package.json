@@ -11,7 +11,7 @@
     "seed-db": "node ./DBseed/itemGen.js",
     "front-end": "webpack -d --watch",
     "express-server": "NODE_ENV=development nodemon server/index.js",
-    "mocha": "mocha --recursive .circleci/mocha/",
+    "mocha": "mocha --timeout 2000 --recursive .circleci/mocha/",
     "jest": "jest .circleci/jest/*.js"
   },
   "dependencies": {
@@ -42,6 +42,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-1": "^6.24.1",
     "chai": "*",
+    "dotenv": "^8.1.0",
     "jest": "^24.8.0",
     "jest-cli": "^24.8.0",
     "mocha": "^6.2.0",
