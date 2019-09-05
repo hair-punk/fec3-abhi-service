@@ -5,7 +5,7 @@ const AWS = require('aws-sdk');
 const Recaptcha = require('express-recaptcha').RecaptchaV2;
 let port = 3008;
 // const keys = require('../.aws/credentials.js')
-const google = require('../.captcha/config.js')
+// const google = require('../.captcha/config.js')
 
 var path = require('path');
 const fs = require('fs')
