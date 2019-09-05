@@ -2,20 +2,23 @@
  orbs:
   newman: postman/newman@0.0.2
  jobs:
-#   postman:
-#     executor: newman/postman-newman-docker
-#     docker:
- #      - image: circleci/node:lts
- #      - image: circleci/mongo:latest
-  #   environment:
- #      - MONGO_URL: "mongodb://localhost:27017/herodb"
-  #   steps:
-   #    - checkout
-    #   - run: npm install
-    #   - run: npm run express-server
-     #  - newman/newman-run:
-     #      collection: .circleci/postman/postman_test.json
-     #      timeout: '1000'
+   postman:
+     executor: newman/postman-newman-docker
+     docker:
+       - image: circleci/node:lts
+       - image: circleci/mongo:latest
+     environment:
+       - MONGO_URL: "mongodb://localhost:27017/herodb"
+     steps:
+       - checkout
+       - run: npm install
+       - run:
+           command: npm run express-server
+           background: true
+
+       - newman/newman-run:
+           collection: .circleci/postman/postman_test.json
+           timeout: '1000'
    jestandmocha:
      docker:
        - image: circleci/node:10.15.3
@@ -46,5 +49,5 @@
    version: 2.1
    postman_and_main:
      jobs:
-   #   - postman
+      - postman
       - jestandmocha
