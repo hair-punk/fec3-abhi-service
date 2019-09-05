@@ -4,7 +4,7 @@ const query = require('../database/index.js')
 const AWS = require('aws-sdk');
 const Recaptcha = require('express-recaptcha').RecaptchaV2;
 let port = 3008;
-const keys = require('../.aws/credentials.js')
+// const keys = require('../.aws/credentials.js')
 const google = require('../.captcha/config.js')
 
 var path = require('path');
@@ -15,20 +15,26 @@ const googleSiteKey = google.GOOGLE_SITE_KEY;
 const googleSecretKey = google.GOOGLE_SECRET_KEY;
 
 var s3 = new AWS.S3({apiVersion: '2006-03-01',
-accessKeyId:keys.AWS_ACCESS_KEY,
-secretAccessKey:keys.AWS_SECRET_KEY,
+accessKeyId:process.env.AWS_ACCESS_KEY,
+secretAccessKey:process.env.AWS_SECRET_KEY,
+// accessKeyId:keys.AWS_ACCESS_KEY,
+// secretAccessKey:keys.AWS_SECRET_KEY,
+
 region:"us-west-1"});
 
 var videoparams ={
-  Bucket:keys.VIDEO_BUCKET,
+  Bucket:process.env.VIDEO_BUCKET,
+  // Bucket:keys.VIDEO_BUCKET,
   Key:''
 };
 var photoparams = {
-  Bucket:keys.PHOTO_BUCKET,
+  // Bucket:keys.PHOTO_BUCKET,
+  Bucket:process.env.PHOTO_BUCKET,
   Key:''
 }
 var thumbnailparams = {
-  Bucket:keys.THUMBNAIL_BUCKET,
+  // Bucket:keys.THUMBNAIL_BUCKET,
+  Bucket:process.env.THUMBNAIL_BUCKET,
   Key:''
 }
 
