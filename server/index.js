@@ -38,7 +38,7 @@ var thumbnailparams = {
   Key:''
 }
 
-var recaptcha = new Recaptcha(googleSiteKey,googleSecretKey);
+// var recaptcha = new Recaptcha(googleSiteKey,googleSecretKey);
 const router = express.Router();
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
