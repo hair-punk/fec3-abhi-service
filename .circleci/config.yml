@@ -17,7 +17,7 @@
            background: true
        - run:
            command: echo 'export PATH=/usr/local/bin:$PATH newman -v' >> $BASH_ENV
-       - newman/newman-run:
+       - newman-run:
            collection: .circleci/postman/postman_test.json
            timeout: '1000'
    jestandmocha:
