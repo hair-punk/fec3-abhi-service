@@ -3,7 +3,6 @@ var chai = require('chai');
 var assert = chai.assert;
 describe('testing the test endpoint', function(){
   it('should test server get /test', async function(){
-
     request('http://localhost:3008/test' ,function(err,res,item){
       assert.equal(item, 'woooo testing!!')
     })
@@ -25,12 +24,15 @@ describe('should get an object as a response',function(){
         assert.property(item, 'gameDeveloper');
         assert.property(item, 'gamePublisher');
         assert.property(item, 'releaseDate');
+        assert.property(item, 'metaTags');
+        assert.property(item, 'videoFileNames');
+        assert.property(item, 'photoFileNames')
     }else{
       this.skip;
     }
   })
   it('the object must have valid video links', function(){
-    //This does not and cannot test to see if the video links work.  That has to be tested manually.  It only tests if the links have valid signatures, access keys, and file extensions.
+    //This does not and cannot test to see if the video links work.  That has to be tested manually.  It only tests if the links have signatures, access keys, and file extensions.
     if(typeof item === 'object'){
       for(var x = 0;x < item.VideoLinks.length;x++){
         assert.include(item.VideoLinks[x], 'Signature=');
@@ -42,7 +44,7 @@ describe('should get an object as a response',function(){
     }
   })
   it('the object must have valid photo links', function(){
-    //This does not and cannot test to see if the photo links work.  That has to be tested manually.  It only tests if the links have valid signatures and access keys.
+    //This does not and cannot test to see if the photo links work.  That has to be tested manually.  It only tests if the links have  signatures and access keys.
     if(typeof item === 'object'){
       for(var x = 0;x < item.PhotoLinks.length;x++){
         assert.include(item.PhotoLinks[x], 'Signature=');
@@ -54,7 +56,7 @@ describe('should get an object as a response',function(){
     }
   })
   it('the object must have valid thumbnail links', function(){
-    //This does not and cannot test to see if the thumbnail links work.  That has to be tested manually.  It only tests if the links have valid signatures and access keys.
+    //This does not and cannot test to see if the thumbnail links work.  That has to be tested manually.  It only tests if the links have signatures and access keys.
     if(typeof item === 'object'){
       for(var x = 0;x < item.ThumbnailLinks.length;x++){
         assert.include(item.ThumbnailLinks[0], 'Signature=');
@@ -68,7 +70,6 @@ describe('should get an object as a response',function(){
 })
 
 describe('should get some random game objects as a response and they must be valid ', function(){
-
     for(var x=0;x < 10;x++){
       var item;
       request("http://localhost:3008/gameObject"+'?id='+Math.ceil(Math.random()*100),(err,res, data)=>{
@@ -89,6 +90,17 @@ describe('should get some random game objects as a response and they must be val
           this.skip;
         }
       })
+      it('the object must have valid thumbnail links', function(){
+        //This does not and cannot test to see if the thumbnail links work.  That has to be tested manually.  It only tests if the links have valid signatures and access keys.
+        if(typeof item === 'object'){
+          for(var x = 0;x < item.ThumbnailLinks.length;x++){
+            assert.include(item.ThumbnailLinks[0], 'Signature=');
+            assert.include(item.ThumbnailLinks[0], 'AWSAccessKeyId=')
+            assert.include(item.ThumbnailLinks[x], '.jpg')
+          }
+        }else{
+          this.skip;
+        }
+      })
     }
-
 })

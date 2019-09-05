@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-//var db = mongoose.connect("mongodb://localhost/herodb");
 var connection = mongoose.createConnection("mongodb://localhost/herodb");
 
 const gameItem = new Schema(
@@ -11,7 +10,9 @@ const gameItem = new Schema(
     gameDeveloper:String,
     gamePublisher:String,
     releaseDate:Date,
-    metaTags:Array
+    metaTags:Array,
+    videoFileNames:Array,
+    photoFileNames:Array
   }
 );
 var Games = connection.model('Game', gameItem);

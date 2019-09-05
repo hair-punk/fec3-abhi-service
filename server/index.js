@@ -4,6 +4,7 @@ const query = require('../database/index.js')
 const AWS = require('aws-sdk');
 const Recaptcha = require('express-recaptcha').RecaptchaV2;
 let port = 3008;
+require('dotenv').config();
 // const keys = require('../.aws/credentials.js')
 // const google = require('../.captcha/config.js')
 
@@ -156,6 +157,7 @@ app.get('/gameObject', async function(req,res){
 
 app.get('/test', async function (req, res) {
   res.send('woooo testing!!');
+
 })
 
 app.listen(port, function(){
