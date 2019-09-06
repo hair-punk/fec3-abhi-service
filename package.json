@@ -12,7 +12,8 @@
     "front-end": "webpack -d --watch",
     "express-server": "NODE_ENV=development nodemon server/index.js",
     "mocha": "mocha --timeout 2000 --recursive .circleci/mocha/",
-    "jest": "jest .circleci/jest/*.js"
+    "jest": "jest .circleci/jest/*.js",
+    "jest:coverage": "jest  -coverage --colors"
   },
   "dependencies": {
     "aws-sdk": "^2.496.0",
@@ -43,9 +44,13 @@
     "babel-preset-stage-1": "^6.24.1",
     "chai": "*",
     "dotenv": "^8.1.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "jest": "^24.8.0",
     "jest-cli": "^24.8.0",
     "mocha": "^6.2.0",
+    "react-test-renderer": "^16.9.0",
+    "request-promise": "^4.2.4",
     "webpack": "^4.36.1",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.7.2"
