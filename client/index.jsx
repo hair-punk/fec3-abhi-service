@@ -8,7 +8,7 @@ const Main = styled.div`
   height:450px;
   width:900px;
   display:flex;
-  opacity:1
+  opacity:1;
 `;
 class HeroBanner extends React.Component{
   constructor(props){
@@ -30,11 +30,12 @@ class HeroBanner extends React.Component{
 
   }
   componentDidMount(){
-    console.log('main component mounted')
-    fetch('http://localhost:3008/gameObject'+'?id='+Math.floor(Math.random()*100)).then(response=>{
+    fetch('http://localhost:3008/gameObject'+'?id='+Math.ceil(Math.random()*100)).then(response=>{
       return response.text()
     }).then(data=>{
       var responsedata = JSON.parse(data);
+      console.log(responsedata.releaseDate)
+      console.log(typeof responsedata.releaseDate)
       this.setState((state,props)=>({
       gameId:responsedata.gameId,
       gameTitle:responsedata.gameTitle,
@@ -51,7 +52,6 @@ class HeroBanner extends React.Component{
       }), ()=>{
       this.forceUpdate();
       });
-      console.log('ajax request just finished');
       this.forceUpdate();
     })
 

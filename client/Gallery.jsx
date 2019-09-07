@@ -10,18 +10,18 @@ const Bar = styled.div`
   overflow:auto;
   white-space:nowrap;
   opacity:1;
-  background-color:#182937
+  background-color:#182937;
   &::-webkit-scrollbar{
-    width:15px
-    height:15px
+    width:15px;
+    height:15px;
   }
   &::-webkit-scrollbar-thumb:horizontal{
     background-color:rgba( 103, 193, 245, .2 );
     border-radius:6px;
     width:10px;
-    height:10px
+    height:10px;
     &:hover{
-      background-color:#66C0F4
+      background-color:#66C0F4;
     }
   }
 `;

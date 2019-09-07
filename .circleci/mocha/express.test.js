@@ -90,12 +90,15 @@ describe('should get some random game objects as a response and they must be val
        });
       it('the object from the response must have valid game item fields',async function(){
         if(typeof item === 'object'){
-            assert.property(item, 'gameId');
-            assert.property(item, 'gameTitle')
-            assert.property(item, 'gameDescription');
-            assert.property(item, 'gameDeveloper');
-            assert.property(item, 'gamePublisher');
-            assert.property(item, 'releaseDate');
+          assert.property(item, 'gameId');
+          assert.property(item, 'gameTitle')
+          assert.property(item, 'gameDescription');
+          assert.property(item, 'gameDeveloper');
+          assert.property(item, 'gamePublisher');
+          assert.property(item, 'releaseDate');
+          assert.property(item, 'metaTags');
+          assert.property(item, 'videoFileNames');
+          assert.property(item, 'photoFileNames')
         }else{
           this.skip;
         }
