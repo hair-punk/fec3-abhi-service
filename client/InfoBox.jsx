@@ -44,7 +44,7 @@ export const Tag = styled.button`
  class InfoBox extends React.Component{
 render(){
   var date = this.props.releaseDate.split('T')[0]
-  return(<InfoElements>
+  return(<InfoElements id='info-elements'>
       <Line id='picture-node' ><img src={this.props.picture} height="160px" width="240px"/></Line>
       <Line><Description id='description-node'>{this.props.description}</Description></Line>
       <Line><Label id='recent-reviews-node'>RECENT REVIEWS:</Label> <Value id='recent-reviews-value'>Mostly Positive</Value></Line>
