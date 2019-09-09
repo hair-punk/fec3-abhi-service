@@ -24,6 +24,7 @@
      docker:
        - image: circleci/node:10.15.3
        - image: circleci/mongo:4.0.9
+       - image: loadimpact/k6
      environment:
        - MONGO_URL: "mongodb://localhost:27017/herodb"
  #    working_directory: ~/
@@ -46,8 +47,7 @@
        - run: ps aux
        - run: npm run jest
        - run: npm run mocha
-       - run: docker pull loadimpact/k6:0.25.1
-       - run: docker run -i loadimpact/k6:0.25.1 run .circleci/k6/main.js
+       - run: docker run -i loadimpact/k6 run - <.circleci/k6/main.js
  workflows:
    version: 2.1
    postman_and_main:
