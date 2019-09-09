@@ -81,13 +81,13 @@ describe('should get some random game objects as a response and they must be val
     var promises = iterable.map(async ()=>{
       var promise = new Promise((resolve)=>{
         var item;
-
-      it('should get a valid game object as a response', async function(){
-          request('http://localhost:3008/gameObject', async (err,res,data)=>{
-            item = await JSON.parse(data);
-            assert.isObject(item);
-          })
-       });
+        request('http://localhost:3008/gameObject'+'?id='+Math.ceil(Math.random()*100), async (err,res,data)=>{
+          item = await JSON.parse(data);
+        })
+        it('should get a valid game object as a response',  function(done){
+          assert.isObject(item);
+          done();
+        });
       it('the object from the response must have valid game item fields',async function(){
         if(typeof item === 'object'){
           assert.property(item, 'gameId');
@@ -104,7 +104,7 @@ describe('should get some random game objects as a response and they must be val
         }
       })
       it('the object must have valid thumbnail links', async function(){
-        //This does not and cannot test to see if the thumbnail links work.  That has to be tested manually.  It only tests if the links have valid signatures and access keys.
+        //This does not and cannot test to see if the thumbnail links work.  That has to be tested manually.  It only tests if the links have valid sigconfig fileatures and access keys.
         if(typeof item === 'object'){
           for(var x = 0;x < item.ThumbnailLinks.length;x++){
             assert.include(item.ThumbnailLinks[0], 'Signature=');
@@ -143,5 +143,5 @@ describe('should get some random game objects as a response and they must be val
     })
     return promise;
   })
-  await Promise.all(promises);
+   await Promise.all(promises);
 })
