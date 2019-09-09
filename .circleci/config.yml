@@ -24,10 +24,8 @@
      docker:
        - image: circleci/node:10.15.3
        - image: circleci/mongo:4.0.9
-       - image: loadimpact/k6
      environment:
        - MONGO_URL: "mongodb://localhost:27017/herodb"
- #    working_directory: ~/
      steps:
        - run: npm update
        - checkout
