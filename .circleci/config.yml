@@ -48,6 +48,9 @@
        - run: npm run mocha
    k6:
     dependencies:
+     docker:
+       - image: circleci/node:10.15.3
+       - image: circleci/mongo:4.0.9
       cache_directories:
         - "~k6-bin"
       post:
