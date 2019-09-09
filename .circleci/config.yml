@@ -47,7 +47,7 @@
        - run: ps aux
        - run: npm run jest
        - run: npm run mocha
-       - run: k6 run .circleci/k6/main.js
+       - run: npm run k6
  workflows:
    version: 2.1
    postman_and_main:
