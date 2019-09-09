@@ -4,9 +4,9 @@ import http from "k6/http";
 // Options
 export let options = {
     stages: [
-        { duration: "10s", target: 10 },
-        { duration: "10s" },
-        { duration: "10s", target: 0 }
+        { duration: "4s", target: 10 },
+        { duration: "4s" },
+        { duration: "4s", target: 0 }
     ],
     thresholds: {
         http_req_duration: ["p(95)<500"]

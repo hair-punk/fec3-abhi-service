@@ -52,7 +52,10 @@ describe('should propogate Infobox with test data, and it should render correctl
       expect(tree.find(InfoElements).find('#picture-node').first().is(Line)).toEqual(true);
     })
 
-    // test('infoelement has a description-node Description element')
+    test('infoelement has a description-node Description element',()=>{
+
+    })
+
     // test('infoelement has a recent-reviews-node Label element')
     // test('infoelement has a recent-reviews-value Value element')
     // test('infoelement has a all-reviews-label Label element')
