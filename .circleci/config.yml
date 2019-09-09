@@ -46,9 +46,25 @@
        - run: ps aux
        - run: npm run jest
        - run: npm run mocha
+   k6:
+    dependencies:
+      cache_directories:
+        - "~k6-bin"
+      post:
+        -  mkdir -p ~k6-bin
+        - |
+          if [[ ! -f ~/k6-bin/k6 ]]; then
+           curl -O -L https://github.com/loadimpact/k6/releases/download/v0.15.0/k6-v0.15.0-linux64.tar.gz;
+           tar -xvzf k6-v0.15.0-linux64.tar.gz;
+           mv k6-v0.15.0-linux64/k6 ~/k6-bin/k6;
+          fi
+    test:
+      override:
+        - ~/k6-bin/k6 run cloud .circleci/k6/k6.main
  workflows:
    version: 2.1
    postman_and_main:
      jobs:
-      - postman
+#      - postman
       - jestandmocha
+      - k6
