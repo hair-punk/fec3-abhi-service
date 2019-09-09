@@ -4,7 +4,7 @@ var chai = require('chai');
 var assert = chai.assert;
 var connection;
 
-describe('Test Connecting and Disconnecting', async function(){
+describe('Test Connecting and Disconnecting from database', async function(){
    it('should connect properly', async function(){
     connection = await mongoose.connect("mongodb://localhost/herodb",{useNewUrlParser:true});
     assert.equal(mongoose.connection.readyState, 1);
@@ -79,6 +79,7 @@ describe('Test Database Queries', async function() {
   })
   it('Should query some random items from the database.  They must be valid.', async function(){
     var iterable = [];
+      //change this upper bound to alter how many random tests are run
     for(var x = 0;x < 20;x++){
       iterable.push(x);
     }

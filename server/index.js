@@ -144,7 +144,6 @@ app.get('/gameObject', async function(req,res){
                     })
                   }
                 })
-
               }
             })
           }
@@ -157,7 +156,6 @@ app.get('/gameObject', async function(req,res){
 
 app.get('/test', async function (req, res) {
   res.send('woooo testing!!');
-
 })
 
 app.listen(port, function(){
