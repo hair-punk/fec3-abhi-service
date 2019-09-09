@@ -55,7 +55,7 @@
               tar -xvzf k6-v0.15.0-linux64.tar.gz;
               mv k6-v0.15.0-linux64/k6 ~/k6-bin/k6;
             fi
-       - run: ~/k6-bin/k6 run ./circleci/k6/main.js
+       - run: ~/k6-bin/k6 run ./.circleci/k6/main.js
  workflows:
    version: 2.1
    postman_and_main:
