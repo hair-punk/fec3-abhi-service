@@ -47,11 +47,11 @@
        - run: npm run jest
        - run: npm run mocha
    k6:
+    docker:
+      - image: circleci/node:10.15.3
+      - image: circleci/mongo:4.0.9
     dependencies:
-     docker:
-       - image: circleci/node:10.15.3
-       - image: circleci/mongo:4.0.9
-      cache_directories:
+     cache_directories:
         - "~k6-bin"
       post:
         -  mkdir -p ~k6-bin
