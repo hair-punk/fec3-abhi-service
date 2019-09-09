@@ -13,7 +13,8 @@
     "express-server": "NODE_ENV=development nodemon server/index.js",
     "mocha": "mocha --timeout 2000 --recursive .circleci/mocha/",
     "jest": "jest .circleci/jest/*.js",
-    "jest:coverage": "jest  -coverage --colors"
+    "jest:coverage": "jest  -coverage --colors",
+    "k6": "k6 run .circleci/k6/main.js"
   },
   "dependencies": {
     "aws-sdk": "^2.524.0",
