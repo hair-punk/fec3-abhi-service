@@ -23,9 +23,7 @@ class Player extends React.Component {
     };
     this.videoClicked = this.videoClicked.bind(this);
     this.photoClicked = this.photoClicked.bind(this);
-  //  this.componentDidMount = this.componentDidMount.bind(this)
     this.componentDidUpdate = this.componentDidUpdate.bind(this)
- // this.videoClicked(0);
   }
   videoClicked(index){
     console.log('videoclicked ran')

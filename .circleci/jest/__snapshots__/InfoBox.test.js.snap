@@ -1,0 +1,261 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Infobox isolation testing Infobox should match isolation shapshot 1`] = `
+<InfoBox
+  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  developer="puzzlesoft"
+  metaTags={
+    Array [
+      "puzzle",
+      "action",
+      "action",
+      "massively multiplayer",
+      "strategy",
+    ]
+  }
+  picture="thumbnail for test.png"
+  publisher="publishersoft"
+  releaseDate="1970-01-1"
+>
+  <InfoBox__InfoElements
+    id="info-elements"
+  >
+    <span
+      className="InfoBox__InfoElements-sc-19eg53t-0 dZnDSJ"
+      id="info-elements"
+    >
+      <InfoBox__Line
+        id="picture-node"
+      >
+        <span
+          className="InfoBox__Line-sc-19eg53t-2 VvDNE"
+          id="picture-node"
+        >
+          <img
+            height="160px"
+            src="thumbnail for test.png"
+            width="240px"
+          />
+        </span>
+      </InfoBox__Line>
+      <InfoBox__Line>
+        <span
+          className="InfoBox__Line-sc-19eg53t-2 VvDNE"
+        >
+          <InfoBox__Description
+            id="description-node"
+          >
+            <p
+              className="InfoBox__Description-sc-19eg53t-1 fMvEnA"
+              id="description-node"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </InfoBox__Description>
+        </span>
+      </InfoBox__Line>
+      <InfoBox__Line>
+        <span
+          className="InfoBox__Line-sc-19eg53t-2 VvDNE"
+        >
+          <InfoBox__Label
+            id="recent-reviews-node"
+          >
+            <span
+              className="InfoBox__Label-sc-19eg53t-3 cscOxv"
+              id="recent-reviews-node"
+            >
+              RECENT REVIEWS:
+            </span>
+          </InfoBox__Label>
+           
+          <InfoBox__Value
+            id="recent-reviews-value"
+          >
+            <span
+              className="InfoBox__Value-sc-19eg53t-4 hpSHe"
+              id="recent-reviews-value"
+            >
+              Mostly Positive
+            </span>
+          </InfoBox__Value>
+        </span>
+      </InfoBox__Line>
+      <InfoBox__Line>
+        <span
+          className="InfoBox__Line-sc-19eg53t-2 VvDNE"
+        >
+          <InfoBox__Label
+            id="all-reviews-node"
+          >
+            <span
+              className="InfoBox__Label-sc-19eg53t-3 cscOxv"
+              id="all-reviews-node"
+            >
+              ALL REVIEWS:
+            </span>
+          </InfoBox__Label>
+          <InfoBox__Value
+            id="all-reviews-value"
+          >
+            <span
+              className="InfoBox__Value-sc-19eg53t-4 hpSHe"
+              id="all-reviews-value"
+            >
+              Mostly Positive
+            </span>
+          </InfoBox__Value>
+        </span>
+      </InfoBox__Line>
+      <br />
+      <InfoBox__Line>
+        <span
+          className="InfoBox__Line-sc-19eg53t-2 VvDNE"
+        >
+          <InfoBox__Label
+            id="release-date-label"
+          >
+            <span
+              className="InfoBox__Label-sc-19eg53t-3 cscOxv"
+              id="release-date-label"
+            >
+              RELEASE DATE:
+            </span>
+          </InfoBox__Label>
+          <InfoBox__Value
+            id="release-date-value"
+          >
+            <span
+              className="InfoBox__Value-sc-19eg53t-4 hpSHe"
+              id="release-date-value"
+            >
+              1970-01-1
+            </span>
+          </InfoBox__Value>
+        </span>
+      </InfoBox__Line>
+      <br />
+      <InfoBox__Line>
+        <span
+          className="InfoBox__Line-sc-19eg53t-2 VvDNE"
+        >
+          <InfoBox__Label
+            id="developer-label"
+          >
+            <span
+              className="InfoBox__Label-sc-19eg53t-3 cscOxv"
+              id="developer-label"
+            >
+              DEVELOPER:
+            </span>
+          </InfoBox__Label>
+          <InfoBox__Value
+            id="developer-value"
+          >
+            <span
+              className="InfoBox__Value-sc-19eg53t-4 hpSHe"
+              id="developer-value"
+            >
+               
+              puzzlesoft
+            </span>
+          </InfoBox__Value>
+        </span>
+      </InfoBox__Line>
+      <InfoBox__Line>
+        <span
+          className="InfoBox__Line-sc-19eg53t-2 VvDNE"
+        >
+          <InfoBox__Label
+            id="publisher-label"
+          >
+            <span
+              className="InfoBox__Label-sc-19eg53t-3 cscOxv"
+              id="publisher-label"
+            >
+              PUBLISHER:
+            </span>
+          </InfoBox__Label>
+          <InfoBox__Value
+            id="publisher-value"
+          >
+            <span
+              className="InfoBox__Value-sc-19eg53t-4 hpSHe"
+              id="publisher-value"
+            >
+               
+              publishersoft
+            </span>
+          </InfoBox__Value>
+        </span>
+      </InfoBox__Line>
+      <br />
+      <InfoBox__Line>
+        <span
+          className="InfoBox__Line-sc-19eg53t-2 VvDNE"
+        >
+          <InfoBox__Label
+            id="user-defined-tags-label"
+          >
+            <span
+              className="InfoBox__Label-sc-19eg53t-3 cscOxv"
+              id="user-defined-tags-label"
+            >
+               Popular user-defined tags for this product:
+            </span>
+          </InfoBox__Label>
+        </span>
+      </InfoBox__Line>
+      <span
+        id="metatags"
+      >
+        <InfoBox__Tag
+          key="0"
+        >
+          <button
+            className="InfoBox__Tag-sc-19eg53t-5 byYoCs"
+          >
+            puzzle
+          </button>
+        </InfoBox__Tag>
+        <InfoBox__Tag
+          key="1"
+        >
+          <button
+            className="InfoBox__Tag-sc-19eg53t-5 byYoCs"
+          >
+            action
+          </button>
+        </InfoBox__Tag>
+        <InfoBox__Tag
+          key="2"
+        >
+          <button
+            className="InfoBox__Tag-sc-19eg53t-5 byYoCs"
+          >
+            action
+          </button>
+        </InfoBox__Tag>
+        <InfoBox__Tag
+          key="3"
+        >
+          <button
+            className="InfoBox__Tag-sc-19eg53t-5 byYoCs"
+          >
+            massively multiplayer
+          </button>
+        </InfoBox__Tag>
+        <InfoBox__Tag
+          key="4"
+        >
+          <button
+            className="InfoBox__Tag-sc-19eg53t-5 byYoCs"
+          >
+            strategy
+          </button>
+        </InfoBox__Tag>
+      </span>
+    </span>
+  </InfoBox__InfoElements>
+</InfoBox>
+`;

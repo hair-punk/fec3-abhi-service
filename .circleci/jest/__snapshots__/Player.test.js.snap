@@ -1,0 +1,338 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Player isolation testing Player should match isolation snapshot 1`] = `
+<Player
+  photoUrls={
+    Array [
+      "photo link0",
+      "photo link1",
+      "photo link2",
+    ]
+  }
+  thumbnailUrls={
+    Array [
+      "photo link0",
+      "photo link1",
+      "photo link2",
+    ]
+  }
+  videoUrls={
+    Array [
+      "video link0",
+      "video link1",
+      "video link2",
+    ]
+  }
+>
+  <Player__MediaContainer>
+    <div
+      className="Player__MediaContainer-vjr722-0 jzcupq"
+    >
+      <ReactPlayer
+        config={
+          Object {
+            "dailymotion": Object {
+              "params": Object {
+                "api": 1,
+                "endscreen-enable": false,
+              },
+              "preload": false,
+            },
+            "facebook": Object {
+              "appId": "1309697205772819",
+            },
+            "file": Object {
+              "attributes": Object {},
+              "dashVersion": "2.9.2",
+              "forceAudio": false,
+              "forceDASH": false,
+              "forceHLS": false,
+              "forceVideo": false,
+              "hlsOptions": Object {},
+              "hlsVersion": "0.10.1",
+              "tracks": Array [],
+            },
+            "mixcloud": Object {
+              "options": Object {
+                "hide_cover": 1,
+              },
+            },
+            "soundcloud": Object {
+              "options": Object {
+                "buying": false,
+                "download": false,
+                "liking": false,
+                "sharing": false,
+                "show_comments": false,
+                "show_playcount": false,
+                "visual": true,
+              },
+            },
+            "twitch": Object {
+              "options": Object {},
+            },
+            "vimeo": Object {
+              "playerOptions": Object {
+                "autopause": false,
+                "byline": false,
+                "portrait": false,
+                "title": false,
+              },
+              "preload": false,
+            },
+            "wistia": Object {
+              "options": Object {},
+            },
+            "youtube": Object {
+              "embedOptions": Object {},
+              "playerVars": Object {
+                "iv_load_policy": 3,
+                "modestbranding": 1,
+                "playsinline": 1,
+                "rel": 0,
+                "showinfo": 0,
+              },
+              "preload": false,
+            },
+          }
+        }
+        controls={true}
+        file={
+          Object {
+            "forceVideo": true,
+          }
+        }
+        height="360px"
+        light={false}
+        loop={false}
+        muted={true}
+        onBuffer={[Function]}
+        onBufferEnd={[Function]}
+        onDisablePIP={[Function]}
+        onDuration={[Function]}
+        onEnablePIP={[Function]}
+        onEnded={[Function]}
+        onError={[Function]}
+        onPause={[Function]}
+        onPlay={[Function]}
+        onProgress={[Function]}
+        onReady={[Function]}
+        onSeek={[Function]}
+        onStart={[Function]}
+        pip={false}
+        playbackRate={1}
+        playing={true}
+        playsinline={false}
+        progressInterval={1000}
+        style={
+          Object {
+            "backgroundColor": "#182937",
+          }
+        }
+        url=""
+        volume={0.15}
+        width="600px"
+        wrapper="div"
+      >
+        <div
+          file={
+            Object {
+              "forceVideo": true,
+            }
+          }
+          style={
+            Object {
+              "backgroundColor": "#182937",
+              "height": "360px",
+              "width": "600px",
+            }
+          }
+        />
+      </ReactPlayer>
+      <Gallery
+        photoClickFunction={[Function]}
+        photoUrls={
+          Array [
+            "photo link0",
+            "photo link1",
+            "photo link2",
+          ]
+        }
+        thumbnailUrls={
+          Array [
+            "photo link0",
+            "photo link1",
+            "photo link2",
+          ]
+        }
+        videoClickFunction={[Function]}
+      >
+        <OverflowScrolling>
+          <ReactSwipe
+            allowMouseEvents={false}
+            innerRef={[Function]}
+            onSwipeDown={[Function]}
+            onSwipeEnd={[Function]}
+            onSwipeLeft={[Function]}
+            onSwipeMove={[Function]}
+            onSwipeRight={[Function]}
+            onSwipeStart={[Function]}
+            onSwipeUp={[Function]}
+            onWheel={[Function]}
+            tagName="div"
+            tolerance={0}
+          >
+            <div
+              onMouseDown={[Function]}
+              onTouchEnd={[Function]}
+              onTouchStart={[Function]}
+              onWheel={[Function]}
+            >
+              <Gallery__Bar
+                className="gallery-bar overflow-scrolling"
+              >
+                <div
+                  className="Gallery__Bar-sc-12uyjs6-1 irczOr gallery-bar overflow-scrolling"
+                >
+                  <Gallery__ThumbNails
+                    key="0"
+                    onClick={[Function]}
+                    src="photo link0"
+                  >
+                    <img
+                      className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                      onClick={[Function]}
+                      src="photo link0"
+                    />
+                  </Gallery__ThumbNails>
+                  <Gallery__ThumbNails
+                    key="1"
+                    onClick={[Function]}
+                    src="photo link1"
+                  >
+                    <img
+                      className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                      onClick={[Function]}
+                      src="photo link1"
+                    />
+                  </Gallery__ThumbNails>
+                  <Gallery__ThumbNails
+                    key="2"
+                    onClick={[Function]}
+                    src="photo link2"
+                  >
+                    <img
+                      className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                      onClick={[Function]}
+                      src="photo link2"
+                    />
+                  </Gallery__ThumbNails>
+                  <Gallery__ThumbNails
+                    key="0"
+                    onClick={[Function]}
+                    src="photo link0"
+                  >
+                    <img
+                      className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                      onClick={[Function]}
+                      src="photo link0"
+                    />
+                  </Gallery__ThumbNails>
+                  <Gallery__ThumbNails
+                    key="1"
+                    onClick={[Function]}
+                    src="photo link1"
+                  >
+                    <img
+                      className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                      onClick={[Function]}
+                      src="photo link1"
+                    />
+                  </Gallery__ThumbNails>
+                  <Gallery__ThumbNails
+                    key="2"
+                    onClick={[Function]}
+                    src="photo link2"
+                  >
+                    <img
+                      className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                      onClick={[Function]}
+                      src="photo link2"
+                    />
+                  </Gallery__ThumbNails>
+                  <Gallery__ThumbNails
+                    key="0"
+                    onClick={[Function]}
+                    src="photo link0"
+                  >
+                    <img
+                      className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                      onClick={[Function]}
+                      src="photo link0"
+                    />
+                  </Gallery__ThumbNails>
+                  <Gallery__ThumbNails
+                    key="1"
+                    onClick={[Function]}
+                    src="photo link1"
+                  >
+                    <img
+                      className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                      onClick={[Function]}
+                      src="photo link1"
+                    />
+                  </Gallery__ThumbNails>
+                  <Gallery__ThumbNails
+                    key="2"
+                    onClick={[Function]}
+                    src="photo link2"
+                  >
+                    <img
+                      className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                      onClick={[Function]}
+                      src="photo link2"
+                    />
+                  </Gallery__ThumbNails>
+                  <Gallery__ThumbNails
+                    key="0"
+                    onClick={[Function]}
+                    src="photo link0"
+                  >
+                    <img
+                      className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                      onClick={[Function]}
+                      src="photo link0"
+                    />
+                  </Gallery__ThumbNails>
+                  <Gallery__ThumbNails
+                    key="1"
+                    onClick={[Function]}
+                    src="photo link1"
+                  >
+                    <img
+                      className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                      onClick={[Function]}
+                      src="photo link1"
+                    />
+                  </Gallery__ThumbNails>
+                  <Gallery__ThumbNails
+                    key="2"
+                    onClick={[Function]}
+                    src="photo link2"
+                  >
+                    <img
+                      className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                      onClick={[Function]}
+                      src="photo link2"
+                    />
+                  </Gallery__ThumbNails>
+                </div>
+              </Gallery__Bar>
+            </div>
+          </ReactSwipe>
+        </OverflowScrolling>
+      </Gallery>
+    </div>
+  </Player__MediaContainer>
+</Player>
+`;
