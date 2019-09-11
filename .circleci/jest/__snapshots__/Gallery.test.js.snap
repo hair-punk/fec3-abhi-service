@@ -1,0 +1,187 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gallery isolation testing should match the isolation testing snapshot 1`] = `
+<Gallery
+  photoClickFunction={[Function]}
+  photoUrls={
+    Array [
+      "photo link0",
+      "photo link1",
+      "photo link2",
+    ]
+  }
+  thumbnailUrls={
+    Array [
+      "photo link0",
+      "photo link1",
+      "photo link2",
+    ]
+  }
+  videoClickFunction={[Function]}
+>
+  <OverflowScrolling>
+    <ReactSwipe
+      allowMouseEvents={false}
+      innerRef={[Function]}
+      onSwipeDown={[Function]}
+      onSwipeEnd={[Function]}
+      onSwipeLeft={[Function]}
+      onSwipeMove={[Function]}
+      onSwipeRight={[Function]}
+      onSwipeStart={[Function]}
+      onSwipeUp={[Function]}
+      onWheel={[Function]}
+      tagName="div"
+      tolerance={0}
+    >
+      <div
+        onMouseDown={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+        onWheel={[Function]}
+      >
+        <Gallery__Bar
+          className="gallery-bar overflow-scrolling"
+        >
+          <div
+            className="Gallery__Bar-sc-12uyjs6-1 irczOr gallery-bar overflow-scrolling"
+          >
+            <Gallery__ThumbNails
+              key="0"
+              onClick={[Function]}
+              src="photo link0"
+            >
+              <img
+                className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                onClick={[Function]}
+                src="photo link0"
+              />
+            </Gallery__ThumbNails>
+            <Gallery__ThumbNails
+              key="1"
+              onClick={[Function]}
+              src="photo link1"
+            >
+              <img
+                className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                onClick={[Function]}
+                src="photo link1"
+              />
+            </Gallery__ThumbNails>
+            <Gallery__ThumbNails
+              key="2"
+              onClick={[Function]}
+              src="photo link2"
+            >
+              <img
+                className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                onClick={[Function]}
+                src="photo link2"
+              />
+            </Gallery__ThumbNails>
+            <Gallery__ThumbNails
+              key="0"
+              onClick={[Function]}
+              src="photo link0"
+            >
+              <img
+                className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                onClick={[Function]}
+                src="photo link0"
+              />
+            </Gallery__ThumbNails>
+            <Gallery__ThumbNails
+              key="1"
+              onClick={[Function]}
+              src="photo link1"
+            >
+              <img
+                className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                onClick={[Function]}
+                src="photo link1"
+              />
+            </Gallery__ThumbNails>
+            <Gallery__ThumbNails
+              key="2"
+              onClick={[Function]}
+              src="photo link2"
+            >
+              <img
+                className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                onClick={[Function]}
+                src="photo link2"
+              />
+            </Gallery__ThumbNails>
+            <Gallery__ThumbNails
+              key="0"
+              onClick={[Function]}
+              src="photo link0"
+            >
+              <img
+                className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                onClick={[Function]}
+                src="photo link0"
+              />
+            </Gallery__ThumbNails>
+            <Gallery__ThumbNails
+              key="1"
+              onClick={[Function]}
+              src="photo link1"
+            >
+              <img
+                className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                onClick={[Function]}
+                src="photo link1"
+              />
+            </Gallery__ThumbNails>
+            <Gallery__ThumbNails
+              key="2"
+              onClick={[Function]}
+              src="photo link2"
+            >
+              <img
+                className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                onClick={[Function]}
+                src="photo link2"
+              />
+            </Gallery__ThumbNails>
+            <Gallery__ThumbNails
+              key="0"
+              onClick={[Function]}
+              src="photo link0"
+            >
+              <img
+                className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                onClick={[Function]}
+                src="photo link0"
+              />
+            </Gallery__ThumbNails>
+            <Gallery__ThumbNails
+              key="1"
+              onClick={[Function]}
+              src="photo link1"
+            >
+              <img
+                className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                onClick={[Function]}
+                src="photo link1"
+              />
+            </Gallery__ThumbNails>
+            <Gallery__ThumbNails
+              key="2"
+              onClick={[Function]}
+              src="photo link2"
+            >
+              <img
+                className="Gallery__ThumbNails-sc-12uyjs6-0 kbeSNN"
+                onClick={[Function]}
+                src="photo link2"
+              />
+            </Gallery__ThumbNails>
+          </div>
+        </Gallery__Bar>
+      </div>
+    </ReactSwipe>
+  </OverflowScrolling>
+</Gallery>
+`;

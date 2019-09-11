@@ -20,20 +20,18 @@ var description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
 var metaTags = ["puzzle","action","action","massively multiplayer","strategy"];
 var developer = 'puzzlesoft';
 var publisher = 'publishersoft';
-var date = new Date(94610000);
+var date = new Date('December 17, 1995 03:24:00');
 date = date.getUTCFullYear() + '-'+date.getMonth()+1+'-'+date.getDate();
 var imagename = 'thumbnail for test.png';
 var recentreviews = 'Mostly Positive';
 var allreviews = "Mostly Positive";
-describe('testing true and false',()=>{
-  test('true should equal true', ()=>{
-    expect(true).toBe(true);
-    expect(false).toBe(false);
-  })
-})
 
-describe('should propogate Infobox with test data, and it should render correctly',  ()=>{
+describe('Infobox isolation testing',  ()=>{
   const tree =  mount((<InfoBox  metaTags={metaTags}picture={imagename} description ={description} releaseDate ={date} developer={developer} publisher={publisher} />));
+
+  it('Infobox should match isolation shapshot',()=>{
+    expect(toJson(tree)).toMatchSnapshot();
+  })
 
   describe('should contain an infoelement component as the outer most DOMComponent',()=>{
     test('infoelements should exist and there should only be one',()=>{
@@ -41,7 +39,6 @@ describe('should propogate Infobox with test data, and it should render correctl
       expect(tree.find(InfoElements).length).toEqual(1)
     })
     test('infoelements should be the outermost dom element',()=>{
-      console.log(tree.childAt(0));
       expect(tree.childAt(0).type()).toEqual(InfoElements);
       expect(tree.children().length).toEqual(1);
     })
@@ -53,19 +50,40 @@ describe('should propogate Infobox with test data, and it should render correctl
     })
 
     test('infoelement has a description-node Description element',()=>{
-
+      expect(tree.find(InfoElements).find('#description-node').first().is(Description)).toEqual(true);
     })
 
-    // test('infoelement has a recent-reviews-node Label element')
-    // test('infoelement has a recent-reviews-value Value element')
-    // test('infoelement has a all-reviews-label Label element')
-    // test('infoelement has a all-reviews-value Value element')
-    // test('infoelement has a developer-label Label element')
-    // test('infoelement has a developer-value Value element')
-    // test('infoelement has a publisher-label Label element')
-    // test('infoelement has a publisher-value Value element')
-    // test('infoelement has a user-defined-tags-label Label element')
-    // test('infoelement has some metatags Tag elements')
+    test('infoelement has a recent-reviews-node Label element',()=>{
+      expect(tree.find(InfoElements).find('#recent-reviews-node').first().is(Label)).toEqual(true);
+    })
+    test('infoelement has a recent-reviews-value Value element',()=>{
+      expect(tree.find(InfoElements).find('#recent-reviews-value').first().is(Value)).toEqual(true);
+    })
+    test('infoelement has a all-reviews-node Label element',()=>{
+      expect(tree.find(InfoElements).find('#all-reviews-node').first().is(Label)).toEqual(true);
+    })
+
+    test('infoelement has a all-reviews-value Value element', ()=>{
+      expect(tree.find(InfoElements).find('#all-reviews-value').first().is(Value)).toEqual(true)
+    })
+    test('infoelement has a developer-label Label element', ()=>{
+      expect(tree.find(InfoElements).find('#developer-label').first().is(Label)).toEqual(true);
+    })
+    test('infoelement has a developer-value Value element', ()=>{
+      expect(tree.find(InfoElements).find('#developer-value').first().is(Value)).toEqual(true);
+    })
+    test('infoelement has a publisher-label Label element',()=>{
+      expect(tree.find(InfoElements).find('#publisher-label').first().is(Label)).toEqual(true);
+    })
+    test('infoelement has a publisher-value Value element', ()=>{
+      expect(tree.find(InfoElements).find('#publisher-value').first().is(Value)).toEqual(true);
+    })
+    test('infoelement has a user-defined-tags-label Label element',()=>{
+      expect(tree.find(InfoElements).find('#user-defined-tags-label').first().is(Label)).toEqual(true);
+    })
+    test('infoelement has a metatags span element',()=>{
+      expect(tree.find(InfoElements).find('#metatags').first().exists()).toEqual(true);
+    })
   })
   test('InfoBox should have correct number of each sub-component', ()=>{
     expect(tree.find(Line).exists()).toEqual(true);
@@ -93,7 +111,6 @@ describe('should propogate Infobox with test data, and it should render correctl
   test('thumbnail should match filename of test image', ()=>{
     expect(tree.find('img').find('[src]').props().src).toEqual('thumbnail for test.png')
   })
-  console.log(tree.html());
   test('should contain an description node', ()=>{
     expect(tree.exists(Description)).toEqual(true)
     expect(tree.find(Description).length).toEqual(1);
@@ -182,6 +199,7 @@ describe('should propogate Infobox with test data, and it should render correctl
 
   test('metatags should match sample data', ()=>{
     var tags = tree.find(Tag);
+    expect(tags.length).toEqual(metaTags.length)
     tags.forEach((tag,index)=>{
       expect(tag.text()).toEqual(metaTags[index])
     })
