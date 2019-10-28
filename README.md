@@ -4,7 +4,7 @@ This repository contains the Exhaust sales platform video player module.  The Ex
 
 ![cropped video player screenshot](https://user-images.githubusercontent.com/1322821/60388296-2504f600-9a64-11e9-8d98-97cea548811b.png)
 # Link
-http://13.57.253.108:3008/
+http://www.shekdigital.com/
 ## Related Projects
   - https://github.com/hair-punk/fec3-tvo-service
   - https://github.com/hair-punk/fec3-amkw-service
